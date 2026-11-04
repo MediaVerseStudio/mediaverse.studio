@@ -1,0 +1,53 @@
+/* MediaVerse Studio website: one small stylesheet, dark like the app, the logo's copper and teal. */
+:root {
+  --bg: #070505;
+  --panel: #120d0a;
+  --line: #2c1f18;
+  --ink: #f4ece5;
+  --ink-dim: #c9b7aa;
+  --copper: #e2793a;
+  --copper-bright: #f39a5e;
+  --teal: #5fa69c;
+  --max: 68rem;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 1.0625rem/1.65 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+a { color: var(--copper-bright); }
+a:hover { color: #ffc493; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 1rem; }
+
+.top { border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 0.9rem; padding-bottom: 0.9rem; }
+.brand { color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: 0.02em; }
+.brand span { color: var(--teal); }
+.top nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.top nav a { color: var(--ink-dim); text-decoration: none; }
+.top nav a:hover, .top nav a[aria-current="page"] { color: var(--ink); }
+
+.hero { text-align: center; padding: 3rem 0 2rem; }
+.hero img { width: min(26rem, 100%); height: auto; display: block; margin: 0 auto; }
+.hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 0.5rem; font-weight: 600; }
+.hero p { color: var(--ink-dim); max-width: 40rem; margin: 0 auto; }
+.status { display: inline-block; margin-top: 1.4rem; padding: 0.35rem 0.9rem; border: 1px solid var(--teal); color: #bfe3dd; font-size: 0.9rem; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; padding: 2rem 0 3rem; }
+.feature { background: var(--panel); border: 1px solid var(--line); padding: 1.25rem 1.35rem; }
+.feature h2 { font-size: 1.15rem; margin: 0 0 0.4rem; color: var(--copper-bright); font-weight: 600; }
+.feature p { margin: 0; color: var(--ink-dim); }
+
+.page { max-width: 46rem; padding: 2.5rem 1rem 3.5rem; }
+.page h1 { font-size: 2rem; margin: 0 0 0.25rem; font-weight: 600; }
+.page h2 { font-size: 1.25rem; margin: 2rem 0 0.4rem; color: var(--copper-bright); font-weight: 600; }
+.page .updated { color: var(--ink-dim); margin-top: 0; }
+.page li { margin: 0.35rem 0; }
+.page code { background: var(--panel); border: 1px solid var(--line); padding: 0.05rem 0.35rem; }
+
+.foot { border-top: 1px solid var(--line); color: var(--ink-dim); font-size: 0.9rem; }
+.foot .wrap { padding-top: 1.25rem; padding-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
+.foot p { margin: 0; }
