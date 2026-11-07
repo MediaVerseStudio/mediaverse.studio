@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MediaVerse Studio</title>
+<!-- The MediaVerse Studio Google Cast receiver (App ID 0E81A85C): the page a Chromecast or Google TV loads when
+     MediaVerse Studio on a computer casts to it. It shows the song in the TV app's look (the cover large, its
+     colours, the lyrics following along) and keeps the picture moving gently for OLED screens. Google's receiver
+     library (required for every Cast receiver) plays the music; the song, its cover and its lyrics come from the
+     computer on the home network. No analytics, nothing stored. -->
+<script src="https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+<style>
+  :root { --accent: #e88647; --accent-rgb: 232, 134, 71; --ink: #f4ece5; --dim: #b9aea6; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #050404; color: var(--ink); overflow: hidden; font-family: "Google Sans", Roboto, "Segoe UI", sans-serif; }
+  /* Google's player plays the music; its own screen is not shown. */
+  cast-media-player { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+  #backdrop { position: absolute; inset: -10%; background-size: cover; background-position: center; filter: blur(60px) saturate(1.2) brightness(0.35); transform: scale(1.1); transition: background-image 1.5s ease; }
+  #glow { position: absolute; left: 10%; right: 10%; bottom: -35%; height: 70%; background: radial-gradient(50% 50% at 50% 100%, rgba(var(--accent-rgb), 0.55), transparent 75%); filter: blur(24px); animation: breathe 7s ease-in-out infinite alternate, sway 40s ease-in-out infinite alternate; }
+  @keyframes breathe { from { opacity: 0.55; transform: scaleY(0.85); } to { opacity: 1; transform: scaleY(1.1); } }
+  @keyframes sway { from { translate: -6% 0; } to { translate: 6% 0; } }
+  /* The whole layout drifts a few pixels over many minutes (burn-in care, as in the TV app). */
+  #stage { position: absolute; inset: 0; display: grid; grid-template-columns: 34vw 1fr; gap: 5vw; align-items: center; padding: 8vh 7vw; animation: drift 900s linear infinite; }
+  @keyframes drift { 0% { transform: translate(0, 0); } 25% { transform: translate(14px, -8px); } 50% { transform: translate(-6px, -14px); } 75% { transform: translate(-14px, 6px); } 100% { transform: translate(0, 0); } }
+  #cover { width: 34vw; aspect-ratio: 1; object-fit: contain; background: #120d0a; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7); }
+  #cover[hidden] { display: block; visibility: hidden; }
+  #words { min-width: 0; }
+  #artist { margin: 0; font-size: 2.2vw; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; }
+  #title { margin: 0.4vh 0 0; font-size: 4.2vw; font-weight: 500; line-height: 1.1; color: var(--accent); overflow-wrap: anywhere; }
+  #album { margin: 1vh 0 0; font-size: 1.8vw; color: var(--dim); }
+  #bar { margin-top: 3vh; height: 0.6vh; background: rgba(255, 255, 255, 0.12); }
+  #bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.9s linear; }
+  #times { display: flex; justify-content: space-between; margin-top: 0.8vh; font-size: 1.3vw; color: var(--dim); }
+  #lyrics { margin-top: 4vh; height: 30vh; overflow: hidden; position: relative; font-size: 2.1vw; line-height: 1.5; }
+  #lines { position: absolute; left: 0; right: 0; top: 0; transition: transform 0.7s ease-out; }
+  #lines p { margin: 0; color: rgba(244, 236, 229, 0.45); transition: color 0.4s, opacity 0.4s; }
+  #lines p.now { color: var(--ink); }
+  #lines p.past { opacity: 0.5; }
+  #idle { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: var(--dim); font-size: 2vw; }
+  #idle strong { display: block; color: var(--ink); font-size: 3.5vw; font-weight: 500; letter-spacing: 0.04em; }
+  #idle span { color: var(--accent); }
+  .is-playing #idle { display: none; }
+  body:not(.is-playing) #stage { display: none; }
+  #paused { position: absolute; top: 6vh; right: 7vw; font-size: 1.4vw; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; }
+  @media (prefers-reduced-motion: reduce) { #glow, #stage { animation: none; } }
+</style>
+</head>
+<body>
+<cast-media-player></cast-media-player>
+<div id="backdrop"></div>
+<div id="glow"></div>
+<div id="idle"><p><strong>Media<span>Verse</span> Studio</strong>Ready to play from your computer</p></div>
+<div id="stage">
+  <img id="cover" alt="" hidden>
+  <div id="words">
+    <p id="artist"></p>
+    <p id="title"></p>
+    <p id="album"></p>
+    <div id="bar"><i></i></div>
+    <div id="times"><span id="elapsed">0:00</span><span id="total"></span></div>
+    <div id="lyrics"><div id="lines"></div></div>
+  </div>
+</div>
+<p id="paused" hidden>Paused</p>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const context = cast.framework.CastReceiverContext.getInstance();
+  const player = context.getPlayerManager();
+  const events = cast.framework.events.EventType;
+  let lyrics = { synced: false, lines: [], plain: "" };
+  let shownLine = -1;
+
+  const clock = (s) => {
+    if (!isFinite(s) || s < 0) return "";
+    s = Math.floor(s);
+    return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  };
+
+  /** The cover's strongest colour for the accent (the share sends covers with CORS, so they can be read). */
+  function colourFrom(image) {
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = canvas.height = 24;
+      const pen = canvas.getContext("2d");
+      pen.drawImage(image, 0, 0, 24, 24);
+      const data = pen.getImageData(0, 0, 24, 24).data;
+      let best = null, bestScore = 0;
+      for (let i = 0; i < data.length; i += 4) {
+        const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        const light = (max + min) / 510;
+        const sat = max === min ? 0 : (max - min) / (255 - Math.abs(max + min - 255));
+        const score = sat ** 3 * (1 - Math.abs(light - 0.55));
+        if (light > 0.15 && light < 0.92 && score > bestScore) { bestScore = score; best = [r, g, b]; }
+      }
+      if (!best || bestScore < 0.05) return null;
+      // Lifted so it reads on the dark screen.
+      const lift = (c) => Math.round(c + (255 - c) * 0.25);
+      return best.map(lift);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function setAccent(rgb) {
+    const value = rgb || [232, 134, 71];
+    document.documentElement.style.setProperty("--accent", `rgb(${value.join(",")})`);
+    document.documentElement.style.setProperty("--accent-rgb", value.join(", "));
+  }
+
+  function showLyrics(data) {
+    lyrics = { synced: !!data?.synced && Array.isArray(data.lines) && data.lines.length > 0, lines: Array.isArray(data?.lines) ? data.lines : [], plain: typeof data?.plain === "string" ? data.plain : "" };
+    shownLine = -1;
+    const box = $("lines");
+    box.replaceChildren();
+    box.style.transform = "translateY(0)";
+    const texts = lyrics.synced ? lyrics.lines.map((l) => l.text) : lyrics.plain.split(/\r?\n/);
+    for (const text of texts.slice(0, 400)) {
+      const p = document.createElement("p");
+      p.textContent = text || " ";
+      box.append(p);
+    }
+    $("lyrics").hidden = texts.filter((t) => t.trim()).length === 0;
+  }
+
+  function followLyrics(seconds, duration) {
+    const box = $("lines");
+    const rows = box.children;
+    if (!rows.length) return;
+    let index;
+    if (lyrics.synced) {
+      const ms = seconds * 1000;
+      index = -1;
+      for (let i = 0; i < lyrics.lines.length; i++) if (lyrics.lines[i].ms <= ms) index = i;
+    } else {
+      // Plain lyrics roll up through the song, as in the TV app.
+      index = duration > 0 ? Math.floor((seconds / duration) * rows.length) : 0;
+    }
+    if (index === shownLine) return;
+    shownLine = index;
+    for (let i = 0; i < rows.length; i++) {
+      rows[i].classList.toggle("now", lyrics.synced && i === index);
+      rows[i].classList.toggle("past", i < index);
+    }
+    const target = rows[Math.max(0, index)];
+    const centre = $("lyrics").clientHeight / 2 - target.offsetHeight / 2;
+    box.style.transform = `translateY(${Math.min(0, centre - target.offsetTop)}px)`;
+  }
+
+  function showSong(media) {
+    const meta = media?.metadata || {};
+    $("artist").textContent = meta.artist || meta.albumArtist || "";
+    $("title").textContent = meta.title || "";
+    $("album").textContent = meta.albumName || "";
+    const art = meta.images?.[0]?.url;
+    const cover = $("cover");
+    if (art) {
+      cover.crossOrigin = "anonymous";
+      cover.onload = () => {
+        cover.hidden = false;
+        setAccent(colourFrom(cover));
+      };
+      cover.onerror = () => {
+        cover.hidden = true;
+        setAccent(null);
+      };
+      cover.src = art;
+      $("backdrop").style.backgroundImage = `url("${art.replace(/"/g, "%22")}")`;
+    } else {
+      cover.hidden = true;
+      $("backdrop").style.backgroundImage = "none";
+      setAccent(null);
+    }
+    $("total").textContent = clock(media?.duration);
+    showLyrics(media?.customData?.lyrics);
+    document.body.classList.add("is-playing");
+  }
+
+  player.addEventListener(events.PLAYER_LOAD_COMPLETE, () => showSong(player.getMediaInformation()));
+  player.addEventListener(events.PLAYING, () => ($("paused").hidden = true));
+  player.addEventListener(events.PAUSE, () => ($("paused").hidden = false));
+  player.addEventListener(events.MEDIA_FINISHED, () => ($("bar").firstElementChild.style.width = "100%"));
+  player.addEventListener(events.TIME_UPDATE, (event) => {
+    const now = event.currentMediaTime || player.getCurrentTimeSec();
+    const duration = player.getDurationSec();
+    $("elapsed").textContent = clock(now);
+    if (duration > 0) {
+      $("total").textContent = clock(duration);
+      $("bar").firstElementChild.style.width = `${Math.min(100, (now / duration) * 100)}%`;
+    }
+    followLyrics(now, duration);
+  });
+
+  const options = new cast.framework.CastReceiverOptions();
+  options.disableIdleTimeout = false;
+  options.supportedCommands = cast.framework.messages.Command.ALL_BASIC_MEDIA;
+  context.start(options);
+})();
+</script>
+</body>
+</html>
