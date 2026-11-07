@@ -11,14 +11,14 @@
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="./">Media<span>Verse</span> Studio</a>
-<nav aria-label="Site"><a href="./">Home</a><a href="privacy.html" aria-current="page">Privacy</a><a href="support.html">Support</a></nav>
+<nav aria-label="Site"><a href="./">Home</a><a href="./#features">Features</a><a href="./#status">Status</a><a href="privacy.html" aria-current="page">Privacy</a><a href="support.html">Support</a></nav>
 </div></header>
 
 <main class="page wrap">
 <h1>Privacy</h1>
-<p class="updated">Last updated 3 November 2026</p>
+<p class="updated">Last updated 6 November 2026</p>
 
-<p>MediaVerse Studio is a free, non-commercial project. It has no accounts, no advertising and no analytics, and it does not collect information about you. Your music, your library and your settings stay on your own devices.</p>
+<p>MediaVerse Studio is a free project, supported only by voluntary donations. It has no accounts, no advertising and no analytics, and it does not collect information about you. Your music, your library and your settings stay on your own devices.</p>
 
 <h2>The Windows program</h2>
 <p>Your library, favorites, flags, listening history and settings are kept in the program's data folder on your computer. Nothing is sent to us.</p>
@@ -29,9 +29,12 @@
 <li><strong>AccurateRip</strong>: a disc's identifier, to check that a rip is exact.</li>
 <li><strong>LRCLIB</strong>: a song's title, artist, album and length, to find its lyrics.</li>
 <li><strong>AcoustID</strong> (being added): an audio fingerprint and a song's length, to recognise a song, using the application key you enter in Settings.</li>
-<li><strong>Discogs</strong> (being added; optional, only if you add your own Discogs access token): artist and album names, to find album details.</li>
+<li><strong>Discogs</strong> (optional, only if you add your own Discogs access token): artist and album names, to find album details and covers.</li>
 </ul>
 <p>Each service receives your computer's internet address, as any website does, and handles it under its own privacy policy. MediaVerse Studio identifies itself to these services by name and version so that they can see which program is asking.</p>
+
+<h2>TVs and speakers in your home</h2>
+<p>If you choose to share your library with TVs (Settings &gt; TV), the program answers MediaVerse TV apps on your home network that you have paired with a code, and only devices with home-network addresses. If you also turn on the search for TVs and speakers (Settings &gt; Cast, off until you turn it on), it asks devices on your home network to make themselves known (Google Cast and DLNA), and when you choose one it sends that device a link to the song, its title, artist, album and cover. Those links work only on your home network and stop working after a few hours. Nothing about this leaves your home.</p>
 
 <h2>The TV app</h2>
 <p>The Samsung TV app talks to MediaVerse Studio on your own computer over your home network, after a one-time pairing code, or to a Jellyfin server you choose, or reads a USB drive plugged into the TV. Profiles and favorites made on the TV are kept on the TV. The app does not send anything to us.</p>
@@ -47,7 +50,7 @@
 </main>
 
 <footer class="foot"><div class="wrap">
-<p>MediaVerse Studio is free software under the GNU GPL version 3. Non-commercial: no ads, no tracking.</p>
+<p>MediaVerse Studio is free software under the GNU GPL version 3. No ads, no tracking.</p>
 <p><a href="mailto:contact@mediaverse.studio">contact@mediaverse.studio</a></p>
 </div></footer>
 </body>
