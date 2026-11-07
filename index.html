@@ -4,47 +4,236 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MediaVerse Studio</title>
-<meta name="description" content="MediaVerse Studio: a free, non-commercial music library manager and player for Windows, with a Samsung TV app. Careful CD ripping, tag repair and song lyrics shown as the music plays.">
+<meta name="description" content="MediaVerse Studio: a free music library manager and player for Windows, with apps for Samsung TVs and Android. Careful CD ripping, tag repair, cover art, synced lyrics, playlists and casting to TVs and speakers.">
+<meta property="og:title" content="MediaVerse Studio">
+<meta property="og:description" content="Your music library, with the words. Free music library manager and player: careful CD ripping, tag repair, cover art and synced lyrics, on your PC, your TV and your phone.">
+<meta property="og:image" content="https://mediaverse.studio/logo.png">
 <link rel="icon" href="logo.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="./">Media<span>Verse</span> Studio</a>
-<nav aria-label="Site"><a href="./" aria-current="page">Home</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
+<nav aria-label="Site"><a href="./" aria-current="page">Home</a><a href="#features">Features</a><a href="#status">Status</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
 </div></header>
 
-<main class="wrap">
-<section class="hero">
+<main>
+<section class="hero wrap">
 <img src="logo.png" alt="MediaVerse Studio logo: a copper record with a sound wave and a lyrics ribbon" width="512" height="423">
 <h1>Your music library, with the words.</h1>
-<p>MediaVerse Studio is a free, non-commercial music library manager and player for Windows, with a companion app for Samsung smart TVs. It helps you rip your CDs carefully, put your library's tags in order, and then enjoy your music on any screen with the album art and the song's lyrics shown together as it plays.</p>
+<p>MediaVerse Studio is a free music library manager and player for Windows, with apps for Samsung smart TVs and Android phones. Rip your CDs carefully, put years of messy tags in order, find the missing covers and lyrics, and then enjoy it all on every screen in the house, with the album art and the words together as the music plays.</p>
+<p class="cta"><a class="button" href="#features">See what it does</a><a class="button ghost" href="#status">Where it is now</a></p>
 <span class="status">In development · not yet released</span>
 </section>
 
-<section class="features" aria-label="What it does">
-<div class="feature">
-<h2>Careful CD ripping</h2>
-<p>Each disc is read to a lossless copy first and checked against AccurateRip, then turned into FLAC for your archive and MP3 for everyday listening.</p>
+<section class="extras wrap" aria-label="Highlights">
+<div><strong>Lyrics that follow along</strong><span>Synced lyrics light up line by line; plain ones roll gently up the screen through the song.</span></div>
+<div><strong>A living cover wall</strong><span>Your own album covers behind every page, slowly turning over, tinted to the music.</span></div>
+<div><strong>Colours from the cover</strong><span>The progress bar, buttons and visualizer take their colour from the album playing.</span></div>
+<div><strong>Kind to OLED screens</strong><span>Nothing sits still for long, so a TV left playing all evening stays safe from burn-in.</span></div>
+</section>
+
+<section id="features" class="feature-rows wrap" aria-label="Features">
+
+<article class="row">
+<div class="words">
+<p class="verb">Rip</p>
+<h2>CD rips you can trust</h2>
+<p>MediaVerse Studio reads each disc to an exact lossless copy first, then checks it against AccurateRip, the shared database of how thousands of other people's copies of the same disc came out. A one-time drive check measures how your CD drive reads, so later rips line up to the sample.</p>
+<ul>
+<li>Lossless FLAC archive copy, and MP3 for everyday listening (LAME V0 by default, or 320 kbps)</li>
+<li>Every file is decoded again after writing to make sure it plays back exactly</li>
+<li>Album, artist and track names from MusicBrainz and gnudb, or typed in yourself</li>
+</ul>
 </div>
-<div class="feature">
-<h2>Tags put right</h2>
-<p>Albums ripped long ago with missing or "Unknown" tags are recognised from their track lengths and sound, and the missing details are suggested for you to check before anything is written.</p>
+<div class="art art-rip" aria-hidden="true">
+<div class="rip-line"><span>01 Opening track</span><b>exact ✓</b></div>
+<div class="rip-line"><span>02 The single</span><b>exact ✓</b></div>
+<div class="rip-line"><span>03 Deep cut</span><b>exact ✓</b></div>
+<div class="rip-line is-busy"><span>04 Reading…</span><i style="--done:62%"></i></div>
+<div class="rip-note">AccurateRip: matched by 214 other rips</div>
 </div>
-<div class="feature">
-<h2>Lyrics, front and centre</h2>
-<p>Song lyrics are found and stored with your music, and synced lyrics follow along line by line while the song plays.</p>
+</article>
+
+<article class="row flip">
+<div class="words">
+<p class="verb">Fix</p>
+<h2>Years of messy tags, put right</h2>
+<p>Albums ripped long ago come with missing years, "Unknown Artist", "Track 01" and three spellings of the same band. Fix tags finds the real release from the tracks you have and their lengths, and shows every change before anything is written. You choose what to apply, page by page, and any batch can be undone.</p>
+<ul>
+<li>Details from MusicBrainz and Discogs; genres suggested from the rest of your library</li>
+<li>Album artists, compilations, disc numbers and featured artists handled properly</li>
+<li>Tags written in the widely supported ID3v2.3 format, so every player and car stereo reads them</li>
+<li>Recognising songs by their sound (AcoustID fingerprints) is coming</li>
+</ul>
 </div>
-<div class="feature">
-<h2>On the big screen</h2>
-<p>The Samsung TV app plays your library from your computer over the home network, from a Jellyfin server or from a USB drive, with a cover wall and a visualizer coloured by the album art.</p>
+<div class="art art-fix" aria-hidden="true">
+<div class="fix-row"><span>Artist</span><s>Unknown Artist</s><b>The Band</b></div>
+<div class="fix-row"><span>Album</span><s>Disc 1</s><b>First Album (Deluxe)</b></div>
+<div class="fix-row"><span>Year</span><s>—</s><b>1997</b></div>
+<div class="fix-row"><span>Title</span><s>Track 03</s><b>The Real Name</b></div>
+<div class="fix-actions"><em>Apply</em><em class="ghost">Undo</em></div>
 </div>
+</article>
+
+<article class="row">
+<div class="words">
+<p class="verb">Find</p>
+<h2>Every cover, every lyric</h2>
+<p>MediaVerse Studio lists the albums with no cover, a blurry one or an oversized one, and fetches proper art from the Cover Art Archive, sized to look sharp on a 4K TV without bloating your files. Lyrics come from LRCLIB, many of them time-stamped so they follow the song.</p>
+<ul>
+<li>Automatic covers and automatic lyrics for a whole library, running quietly in the background</li>
+<li>Likely matches (a live version, another album) are kept for you to check, with a confidence score</li>
+<li>A timing editor to sync plain lyrics yourself by tapping along with the song</li>
+<li>Paste or drop any picture onto an album; back covers and artist photos too</li>
+</ul>
+</div>
+<div class="art art-lyrics" aria-hidden="true">
+<p class="past">and the night came down</p>
+<p class="past">over the empty town</p>
+<p class="now">we sang it loud and long</p>
+<p>the words to every song</p>
+<p class="far">until the morning came</p>
+</div>
+</article>
+
+<article class="row flip">
+<div class="words">
+<p class="verb">Play</p>
+<h2>A library that feels like a record shelf</h2>
+<p>Artists sit on a wall of album stacks, grouped by letter like Windows Media Player, with the calm, bold look of the Zune. Open an artist to see each album's cover beside its songs, in the columns you choose.</p>
+<ul>
+<li>One search box for artists, albums and songs</li>
+<li>Playlists you can drag into order, share with friends as XSPF files, and import from other players</li>
+<li>Play next, Add to queue, favourites, pinned albums and a Home page of what you play most</li>
+<li>Now Playing fills the screen with your own cover collage, the lyrics and a glow that moves with the music</li>
+<li>Twenty highlight colours, from MediaVerse orange to laser lemon and hot magenta</li>
+</ul>
+</div>
+<div class="art art-wall" aria-hidden="true">
+<div class="tiles">
+<i style="--a:#c2452f;--b:#2d1a3f"></i><i style="--a:#e3b341;--b:#5b2a17"></i><i class="big" style="--a:#2f7fb8;--b:#0d1b2e"></i><i style="--a:#6d3fa8;--b:#14102a"></i>
+<i style="--a:#2e8b57;--b:#0f2218"></i><i style="--a:#d76b9a;--b:#2a0f1f"></i><i style="--a:#e07a3a;--b:#2a1208"></i><i style="--a:#3aa6a0;--b:#0b2221"></i>
+<i style="--a:#b8b8c8;--b:#202028"></i><i style="--a:#d4483b;--b:#1d0b09"></i>
+</div>
+<div class="wall-playing"><span class="cover"></span><span><b>Now playing</b>Your music, your covers</span></div>
+</div>
+</article>
+
+<article class="row">
+<div class="words">
+<p class="verb">Watch</p>
+<h2>Made for the big screen</h2>
+<p>The TV app turns the living room into a jukebox: a slowly turning wall of your covers, the album and song, the lyrics large enough to sing along to, and a visualizer coloured by the album art. It plays from MediaVerse Studio on your computer, from a Jellyfin server or from a USB drive plugged into the TV.</p>
+<ul>
+<li>Built for the TV remote: big tiles, letter jumps, a queue you can build from the couch</li>
+<li>Your phone can be the remote, or hand the TV a playlist</li>
+<li>Profiles for everyone in the house</li>
+<li>Gentle on OLED panels, and it keeps the TV's screen saver from interrupting the music</li>
+</ul>
+</div>
+<div class="art art-tv" aria-hidden="true">
+<div class="tv">
+<div class="tv-wall"></div>
+<div class="tv-now"><span class="cover"></span><span><b>Song title</b>Artist · Album · 1997</span></div>
+<div class="tv-lyrics"><p>the line before</p><p class="now">the line being sung</p><p>the line after</p></div>
+<div class="tv-glow"></div>
+</div>
+</div>
+</article>
+
+<article class="row flip">
+<div class="words">
+<p class="verb">Share</p>
+<h2>Every room, every speaker</h2>
+<p>Send what is playing to another room in one click, and the TV button becomes its remote. Press play on the computer and the music comes back.</p>
+<ul>
+<li>TVs with the MediaVerse app show their full Now Playing screen</li>
+<li>Google Cast: Chromecast, Google TV, Nest speakers and TVs with Cast built in</li>
+<li>DLNA: smart TVs and network amplifiers and speakers from many brands</li>
+<li>Android app with Android Auto for the car, which can also share the phone's music with the TV (in testing)</li>
+</ul>
+</div>
+<div class="art art-cast" aria-hidden="true">
+<div class="cast-menu">
+<p class="cast-title">Play on a TV or speaker</p>
+<p>Living room TV <small>MediaVerse app</small></p>
+<p class="on">Den TV <small>Google Cast</small></p>
+<p>Kitchen speaker <small>Google Cast</small></p>
+<p>Amplifier <small>DLNA</small></p>
+</div>
+</div>
+</article>
+
+<article class="row">
+<div class="words">
+<p class="verb">Care</p>
+<h2>Look after the collection</h2>
+<p>Heard a click or a skip? Flag the song right from the player, note what you heard, and come back to it later. The defect scan listens through songs for clicks, pops, dropouts and stuck sound, and points you to the spot to check.</p>
+<ul>
+<li>Convert other formats to MP3 using the codecs Windows already has</li>
+<li>Lists of albums still missing covers or lyrics</li>
+<li>Nothing in your library is renamed, moved or rewritten without you asking</li>
+</ul>
+</div>
+<div class="art art-scan" aria-hidden="true">
+<div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="spike"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<p class="scan-note">Possible click at 2:14 · listen</p>
+</div>
+</article>
+</section>
+
+<section class="everything wrap" aria-labelledby="everything-title">
+<h2 id="everything-title">And all the everyday things</h2>
+<ul class="ticks">
+<li>Shuffle, repeat one and repeat all</li>
+<li>Columns to choose, size and sort</li>
+<li>Right-click menus and keyboard shortcuts</li>
+<li>Listening history (and a switch to turn it off)</li>
+<li>Pinned albums and favourite songs</li>
+<li>Album and song properties at a glance</li>
+<li>Pictures and lyrics editor for any song</li>
+<li>Library watched for new files</li>
+<li>Window size and place remembered</li>
+<li>Screen dims or sleeps when left alone</li>
+<li>Calmer motion setting, and Windows' reduce-motion respected</li>
+<li>Works offline; online lookups only when you ask</li>
+</ul>
+</section>
+
+<section class="free wrap" aria-labelledby="free-title">
+<h2 id="free-title">Free, and it stays free</h2>
+<p>MediaVerse Studio is free software under the GNU General Public License version 3: anyone may use it, study it and share it, and every copy or changed version must stay free with its source code. There are no paid features, no adverts, no accounts and no tracking; your music and your library stay on your own devices (see <a href="privacy.html">Privacy</a>). The project is made in spare time and supported only by voluntary donations, which help pay for things such as developer registrations and test devices.</p>
+</section>
+
+<section id="status" class="roadmap wrap" aria-labelledby="status-title">
+<h2 id="status-title">Where it is now</h2>
+<div class="columns">
+<div><h3>Working today</h3><ul>
+<li>Windows: library, playback, playlists, Now Playing</li>
+<li>CD ripping with AccurateRip</li>
+<li>Fix tags, covers, lyrics, defect scan</li>
+<li>Samsung TV app (Tizen)</li>
+<li>Casting to TVs and speakers</li>
+</ul></div>
+<div><h3>Being tested</h3><ul>
+<li>Android app and Android Auto</li>
+<li>Google Cast in the MediaVerse look</li>
+<li>The first public installer</li>
+</ul></div>
+<div><h3>Coming</h3><ul>
+<li>Recognising songs by their sound (AcoustID)</li>
+<li>The TV and phone apps in the Samsung and Google Play stores</li>
+<li>Playlists on the TV and phone</li>
+</ul></div>
+</div>
+<p class="roadmap-note">Not released yet. To hear when it is, or to help test, write to <a href="mailto:contact@mediaverse.studio">contact@mediaverse.studio</a>.</p>
 </section>
 </main>
 
 <footer class="foot"><div class="wrap">
-<p>MediaVerse Studio is free software under the GNU GPL version 3. Non-commercial: no ads, no tracking.</p>
-<p><a href="mailto:contact@mediaverse.studio">contact@mediaverse.studio</a></p>
+<p>MediaVerse Studio is free software under the GNU GPL version 3. No ads, no tracking.</p>
+<p><a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="mailto:contact@mediaverse.studio">contact@mediaverse.studio</a></p>
 </div></footer>
 </body>
 </html>
