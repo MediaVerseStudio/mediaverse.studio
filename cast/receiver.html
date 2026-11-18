@@ -15,8 +15,11 @@
   html, body { margin: 0; height: 100%; background: #050404; color: var(--ink); overflow: hidden; font-family: "Google Sans", Roboto, "Segoe UI", sans-serif; }
   /* Google's player plays the music; its own screen is not shown. */
   cast-media-player { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-  #backdrop { position: absolute; inset: -10%; background-size: cover; background-position: center; filter: blur(60px) saturate(1.2) brightness(0.35); transform: scale(1.1); transition: background-image 1.5s ease; }
-  #glow { position: absolute; left: 10%; right: 10%; bottom: -35%; height: 70%; background: radial-gradient(50% 50% at 50% 100%, rgba(var(--accent-rgb), 0.55), transparent 75%); filter: blur(24px); animation: breathe 7s ease-in-out infinite alternate, sway 40s ease-in-out infinite alternate; }
+  /* Light on a Chromecast's small graphics chip (as in the TV app, D66): the cover is drawn once into a tiny canvas that the
+     screen stretches (the stretching is the blur), not blurred at 60 px over a screen-sized picture; the glow is a soft
+     gradient already, so it has no blur filter either. */
+  #backdrop { position: absolute; inset: -10%; width: 120%; height: 120%; }
+  #glow { position: absolute; left: 10%; right: 10%; bottom: -35%; height: 70%; background: radial-gradient(50% 50% at 50% 100%, rgba(var(--accent-rgb), 0.55), transparent 75%); animation: breathe 7s ease-in-out infinite alternate, sway 40s ease-in-out infinite alternate; }
   @keyframes breathe { from { opacity: 0.55; transform: scaleY(0.85); } to { opacity: 1; transform: scaleY(1.1); } }
   @keyframes sway { from { translate: -6% 0; } to { translate: 6% 0; } }
   /* The whole layout drifts a few pixels over many minutes (burn-in care, as in the TV app). */
@@ -29,7 +32,7 @@
   #title { margin: 0.4vh 0 0; font-size: 4.2vw; font-weight: 500; line-height: 1.1; color: var(--accent); overflow-wrap: anywhere; }
   #album { margin: 1vh 0 0; font-size: 1.8vw; color: var(--dim); }
   #bar { margin-top: 3vh; height: 0.6vh; background: rgba(255, 255, 255, 0.12); }
-  #bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.9s linear; }
+  #bar i { display: block; height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.9s linear; }
   #times { display: flex; justify-content: space-between; margin-top: 0.8vh; font-size: 1.3vw; color: var(--dim); }
   #lyrics { margin-top: 4vh; height: 30vh; overflow: hidden; position: relative; font-size: 2.1vw; line-height: 1.5; }
   #lines { position: absolute; left: 0; right: 0; top: 0; transition: transform 0.7s ease-out; }
@@ -47,7 +50,7 @@
 </head>
 <body>
 <cast-media-player></cast-media-player>
-<div id="backdrop"></div>
+<canvas id="backdrop" width="32" height="18"></canvas>
 <div id="glow"></div>
 <div id="idle"><p><strong>Media<span>Verse</span> Studio</strong>Ready to play from your computer</p></div>
 <div id="stage">
@@ -100,6 +103,22 @@
       return best.map(lift);
     } catch (error) {
       return null;
+    }
+  }
+
+  /** The cover, once, into the 32 x 18 backdrop (darkened); the screen stretching it makes the blur. */
+  function paintBackdrop(image) {
+    const canvas = $("backdrop");
+    const pen = canvas.getContext("2d");
+    pen.clearRect(0, 0, canvas.width, canvas.height);
+    if (image) {
+      try {
+        pen.drawImage(image, 0, 0, canvas.width, canvas.height);
+        pen.fillStyle = "rgba(5, 4, 4, 0.68)";
+        pen.fillRect(0, 0, canvas.width, canvas.height);
+      } catch (error) {
+        pen.clearRect(0, 0, canvas.width, canvas.height);
+      }
     }
   }
 
@@ -160,16 +179,17 @@
       cover.onload = () => {
         cover.hidden = false;
         setAccent(colourFrom(cover));
+        paintBackdrop(cover);
       };
       cover.onerror = () => {
         cover.hidden = true;
         setAccent(null);
+        paintBackdrop(null);
       };
       cover.src = art;
-      $("backdrop").style.backgroundImage = `url("${art.replace(/"/g, "%22")}")`;
     } else {
       cover.hidden = true;
-      $("backdrop").style.backgroundImage = "none";
+      paintBackdrop(null);
       setAccent(null);
     }
     $("total").textContent = clock(media?.duration);
@@ -180,14 +200,14 @@
   player.addEventListener(events.PLAYER_LOAD_COMPLETE, () => showSong(player.getMediaInformation()));
   player.addEventListener(events.PLAYING, () => ($("paused").hidden = true));
   player.addEventListener(events.PAUSE, () => ($("paused").hidden = false));
-  player.addEventListener(events.MEDIA_FINISHED, () => ($("bar").firstElementChild.style.width = "100%"));
+  player.addEventListener(events.MEDIA_FINISHED, () => ($("bar").firstElementChild.style.transform = "scaleX(1)"));
   player.addEventListener(events.TIME_UPDATE, (event) => {
     const now = event.currentMediaTime || player.getCurrentTimeSec();
     const duration = player.getDurationSec();
     $("elapsed").textContent = clock(now);
     if (duration > 0) {
       $("total").textContent = clock(duration);
-      $("bar").firstElementChild.style.width = `${Math.min(100, (now / duration) * 100)}%`;
+      $("bar").firstElementChild.style.transform = `scaleX(${Math.min(1, now / duration).toFixed(4)})`;
     }
     followLyrics(now, duration);
   });
