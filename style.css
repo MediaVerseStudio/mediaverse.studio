@@ -22,7 +22,10 @@ a { color: var(--copper-bright); }
 a:hover { color: #ffc493; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1rem; }
 
-.top { border-bottom: 1px solid var(--line); }
+/* The bar stays at the top while the page scrolls, and links that jump to a section stop just below it (the bar is taller where its links wrap on a phone). */
+.top { position: sticky; top: 0; z-index: 50; background: rgba(7, 5, 5, 0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+html { scroll-padding-top: 4.5rem; }
+@media (max-width: 40rem) { html { scroll-padding-top: 7.5rem; } }
 .top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 0.9rem; padding-bottom: 0.9rem; }
 .brand { color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: 0.02em; }
 .brand span { color: var(--teal); }
