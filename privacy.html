@@ -11,12 +11,12 @@
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="./">Media<span>Verse</span> Studio</a>
-<nav aria-label="Site"><a href="./">Home</a><a href="./#features">Features</a><a href="./#status">Status</a><a href="privacy.html" aria-current="page">Privacy</a><a href="support.html">Support</a></nav>
+<nav aria-label="Site"><a href="./">Home</a><a href="./#features">Features</a><a href="./#beta">Beta</a><a href="./#status">Roadmap</a><a href="privacy.html" aria-current="page">Privacy</a><a href="support.html">Support</a></nav>
 </div></header>
 
 <main class="page wrap">
 <h1>Privacy</h1>
-<p class="updated">Last updated 6 November 2026</p>
+<p class="updated">Last updated 23 November 2026</p>
 
 <p>MediaVerse Studio is a free project, supported only by voluntary donations. It has no accounts, no advertising and no analytics, and it does not collect information about you. Your music, your library and your settings stay on your own devices.</p>
 
@@ -36,8 +36,17 @@
 <h2>TVs and speakers in your home</h2>
 <p>If you choose to share your library with TVs (Settings &gt; TV), the program answers MediaVerse TV apps on your home network that you have paired with a code, and only devices with home-network addresses. If you also turn on the search for TVs and speakers (Settings &gt; Cast, off until you turn it on), it asks devices on your home network to make themselves known (Google Cast and DLNA), and when you choose one it sends that device a link to the song, its title, artist, album and cover. Those links work only on your home network and stop working after a few hours. A Google Cast device (Chromecast, Google TV) shows MediaVerse Studio's player page, which it loads from this website together with Google's receiver library from Google; the song itself, its cover and its lyrics still come only from your computer, over your home network.</p>
 
+<h2>The Lyric AI</h2>
+<p>The Lyric AI, which checks and times lyrics by listening to a song, runs on your own computer with models you add yourself. It does not send your music, or anything about it, to us or to anyone else. Looking up lyrics for a song still goes to LRCLIB as described above.</p>
+
+<h2>Your Jellyfin server</h2>
+<p>MediaVerse Studio can work with a Jellyfin media server that you run. It talks to that server only at a home-network address (a private address on your own network, or this computer), never to a server on the internet. You sign in with Jellyfin's Quick Connect code; the sign-in token that Jellyfin gives back is kept on your own device (and held in the program's memory while it plays songs from the server). Using the server, the program reads your song list, covers and lyrics, and it reads and writes playlists, including the playlists named "Problem tracks" and "Problem Playlist" that carry songs you flagged on a phone, a TV or the computer. When you cast a song from the server to a TV or speaker, the link given to that device on your home network contains the sign-in token, as Jellyfin's own casting does; sign out in Settings > Jellyfin, or end the session on the server, to make it stop working. None of this goes to us.</p>
+
 <h2>The TV app</h2>
-<p>The Samsung TV app talks to MediaVerse Studio on your own computer over your home network, after a one-time pairing code, or to a Jellyfin server you choose, or reads a USB drive plugged into the TV. Profiles and favorites made on the TV are kept on the TV. The app does not send anything to us.</p>
+<p>The Samsung TV app talks to MediaVerse Studio on your own computer over your home network, after a one-time pairing code, or to a Jellyfin server you choose (signing in with a code), or reads a USB drive plugged into the TV. Profiles and favorites made on the TV are kept on the TV; songs you flag on the TV go to your own Jellyfin server if you use one. The app does not send anything to us.</p>
+
+<h2>The Android app</h2>
+<p>The Android app plays music stored on your phone, can send what it plays to TVs and speakers on your home network, and can sign in to your own Jellyfin server to share flagged songs and playlists. It asks for access to the audio files on your phone and to the network for these purposes only. It has no accounts, no advertising and no analytics, and it does not send anything to us.</p>
 
 <h2>This website</h2>
 <p>This website is hosted by GitHub Pages and sets no cookies of its own. GitHub may log visitors' internet addresses for security, as described in GitHub's privacy statement.</p>
