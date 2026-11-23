@@ -22,7 +22,7 @@
 <div class="hero-words">
 <div class="hero-logo"><img src="img/emblem-large.png" alt="" width="463" height="320"><img src="img/wordmark.png" alt="MediaVerse Studio" width="527" height="160"></div>
 <h1>Your music library, with the words, on every screen.</h1>
-<p>MediaVerse Studio is a free, open-source music library and player. Rip your CDs with verified accuracy, put years of messy tags in order, find the missing covers and lyrics (an AI that listens to the song can even time them for you), then play it all on your Windows PC, your Android phone, your Samsung TV and any Chromecast or network speaker, straight from a folder or from your own Jellyfin server.</p>
+<p>MediaVerse Studio is a free, open-source music library and player. Rip your CDs with verified accuracy, put years of messy tags in order, find the missing covers and lyrics (an AI that listens to the song can even time them for you), then play it all on your Windows PC, your Android phone (with the music you choose kept on it, in step with your home server), your Samsung TV and any Chromecast or network speaker, straight from a folder or from your own Jellyfin server.</p>
 <p class="cta"><a class="button" href="#beta">Join the beta</a><a class="button ghost" href="#see">See it in action</a></p>
 <span class="status">Beta opening soon · Windows 11, Android and Samsung TVs</span>
 </div>
@@ -42,7 +42,7 @@
 <section class="platforms wrap" aria-label="Platforms">
 <div><h3>Windows 11</h3><p>The full program: rip, fix, find, play, cast.</p><span class="pill">Working · private beta</span></div>
 <div><h3>Samsung TVs</h3><p>A Tizen app for the remote, playing from your PC, a Jellyfin server or a USB drive.</p><span class="pill">Working · private beta</span></div>
-<div><h3>Android</h3><p>Playback app with Android Auto, casting, and shared flags and playlists through your Jellyfin server.</p><span class="pill">In testing</span></div>
+<div><h3>Android</h3><p>Playback app with Android Auto, casting, and music kept in step with your Jellyfin server.</p><span class="pill">In testing</span></div>
 <div><h3>Google TV</h3><p>The Android app, made for the TV screen and remote.</p><span class="pill soon">Next</span></div>
 <div><h3>Linux</h3><p>An AppImage first; most of the program already runs there.</p><span class="pill plan">Planned</span></div>
 </section>
@@ -55,6 +55,9 @@
 <figure class="shot"><img src="img/pc-artist.jpg" alt="An artist page on Windows: each album's cover beside its songs in a table with length, artist, genre, bitrate and date added" width="1600" height="1001" loading="lazy"><figcaption><b>Artist pages</b> Each album's cover beside its songs, in the columns you choose.</figcaption></figure>
 <figure class="shot"><img src="img/tv-albums.jpg" alt="The TV app's library: artists, albums, genres and songs across the top, a grid of album covers and an A to Z letter bar" width="1600" height="902" loading="lazy"><figcaption><b>Built for the remote</b> Big tiles, an A to Z jump, and a back bar always one press away.</figcaption></figure>
 <figure class="shot"><img src="img/pc-albums.jpg" alt="The albums view on Windows: albums grouped under letters with cover, title, artist, year and song count" width="1600" height="1001" loading="lazy"><figcaption><b>Every album, compilations too</b> Grouped by letter, with a jump bar down the side.</figcaption></figure>
+<figure class="shot wide"><img src="img/phone-home-sync.jpg" alt="Three Android screens: the Home server page after a sync with a Sync now button and the list of artists, albums and playlists kept on the phone; the artist chooser with ticks; the album chooser with the artist, year and song count" width="1426" height="1019" loading="lazy"><figcaption><b>On the phone</b> Choose what to keep from your Jellyfin server, press Sync now, and it plays from the phone, with no signal needed.</figcaption></figure>
+<figure class="shot"><img src="img/pc-lyrics-editor.jpg" alt="The lyrics editor on Windows: play, pause, back and forward buttons, a seek bar, a speed choice, a Lyric AI button, and the song's lines each with a time and a now button, the line being sung highlighted" width="1600" height="1001" loading="lazy"><figcaption><b>The lyrics editor</b> Its own player, line-by-line timing, and a Lyric AI that times the rest around the lines you set.</figcaption></figure>
+<figure class="shot"><img src="img/pc-player-bar.jpg" alt="An artist page on Windows with the new player bar: an accent-coloured pause button, the time, a progress bar, the volume and the cast, shuffle, repeat, favourite and flag buttons" width="1600" height="1001" loading="lazy"><figcaption><b>The new player bar</b> Accent-coloured controls, and every song held in memory so seeking never waits.</figcaption></figure>
 <figure class="shot"><img src="img/tv-album.jpg" alt="An album on the TV app: the cover large on the left, Play, Shuffle, Play next and Add to queue buttons, and the song list" width="1600" height="902" loading="lazy"><figcaption><b>Queue from the couch</b> Play, shuffle, play next or add to the queue.</figcaption></figure>
 </div>
 </section>
@@ -187,12 +190,27 @@
 <div class="art art-hub" aria-hidden="true">
 <div class="hub-center"><b>Your Jellyfin server</b><small>music · playlists · flagged songs</small></div>
 <div class="hub-links"></div>
-<div class="hub-nodes"><span>PC<small>edit &amp; rip</small></span><span>TV<small>listen</small></span><span>Phone<small>listen &amp; flag</small></span></div>
+<div class="hub-nodes"><span>PC<small>edit &amp; rip</small></span><span>TV<small>listen</small></span><span>Phone<small>keep, play &amp; flag</small></span></div>
 <p class="hub-note">One place for the lists, every screen in step</p>
 </div>
 </article>
 
 <article class="row">
+<div class="words">
+<p class="verb">Carry</p>
+<h2>Your home server, in your pocket</h2>
+<p>On Android, choose the artists, albums or playlists you want to keep, much as a cloud-storage app lets you choose which folders to keep on a computer. When the phone is home on Wi-Fi, MediaVerse Studio fetches them from your Jellyfin server into the phone's Music folder, and from then on they play from the phone itself: no signal, no buffering, in the car or on a plane.</p>
+<ul>
+<li><strong>Edits come down:</strong> fix a tag, a cover or a lyric on the PC and the next sync brings the new version to the phone</li>
+<li><strong>Add and remove as you like:</strong> stop keeping an album and its songs leave the phone; a safety stop keeps them if the server suddenly looks empty</li>
+<li><strong>Playlists and flagged songs go both ways</strong>, so what you make on the phone shows on the PC and the TV <span class="tag new">new, in testing</span></li>
+<li>Only on your home Wi-Fi, only with your own server; nothing goes through us</li>
+</ul>
+</div>
+<figure class="shot art-shot"><img src="img/phone-home-sync.jpg" alt="" width="1426" height="1019" loading="lazy"></figure>
+</article>
+
+<article class="row flip">
 <div class="words">
 <p class="verb">Cast</p>
 <h2>Every room, every speaker</h2>
@@ -216,7 +234,7 @@
 </div>
 </article>
 
-<article class="row flip">
+<article class="row">
 <div class="words">
 <p class="verb">Care</p>
 <h2>Look after the collection</h2>
@@ -249,7 +267,7 @@
 <li>Window size and place remembered</li>
 <li>Screen dims or sleeps when left alone</li>
 <li>Calmer motion setting, and Windows' reduce-motion respected</li>
-<li>Round, colour-matched player controls, like the TV's</li>
+<li>Accent-coloured player controls, like the TV's</li>
 <li>One-file installer: nothing else to download</li>
 </ul>
 </section>
@@ -302,8 +320,9 @@
 </ul></div>
 <div><h3>In beta testing</h3><ul>
 <li>The Windows installer, with friends and family</li>
-<li>Android app and Android Auto</li>
+<li>Android app, Android Auto and casting from the phone</li>
 <li>The Jellyfin server as the whole PC library <span class="tag new">new</span></li>
+<li>Android: keep chosen music from your server on the phone, in step both ways <span class="tag new">new</span></li>
 <li>Google Cast in the MediaVerse look</li>
 </ul></div>
 <div><h3>Next</h3><ul>
