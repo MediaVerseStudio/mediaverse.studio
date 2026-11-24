@@ -14,10 +14,11 @@
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="./"><img src="img/emblem.png" alt="" width="46" height="32"><b>Media<span>Verse</span> Studio</b></a>
-<nav aria-label="Site"><a href="./" aria-current="page">Home</a><a href="#see">Screens</a><a href="#features">Features</a><a href="#beta">Beta</a><a href="#status">Roadmap</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
+<nav aria-label="Site"><a href="./" aria-current="page">Home</a><a href="#see">Screens</a><a href="#features">Features</a><a href="#compare">Compare</a><a href="#beta">Beta</a><a href="#status">Roadmap</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
 </div></header>
 
 <main>
+<div class="band band-hero">
 <section class="hero2 wrap">
 <div class="hero-words">
 <div class="hero-logo"><img src="img/emblem-large.png" alt="" width="463" height="320"><img src="img/wordmark.png" alt="MediaVerse Studio" width="527" height="160"></div>
@@ -47,6 +48,38 @@
 <div><h3>Linux</h3><p>An AppImage first; most of the program already runs there.</p><span class="pill plan">Planned</span></div>
 </section>
 
+<section class="news wrap" aria-label="What is new">
+<div>
+<h2>what's new in this build</h2>
+<ul>
+<li><b>Volume levelling by album.</b> Each album is brought to one even loudness as a whole, so soft songs stay soft and nothing is turned up too far.</li>
+<li><b>Gapless and crossfade</b> between songs, and a ten-band equalizer.</li>
+<li><b>Mini player,</b> media keys and taskbar buttons on Windows.</li>
+<li><b>Smart playlists</b> made of rules, and an Auto-DJ that keeps the music going.</li>
+<li><b>Android:</b> every artist in the chooser, and music already on the phone is recognised.</li>
+</ul>
+<p class="news-note">These are in the current development build and arrive with the first public release.</p>
+</div>
+<div>
+<h2>tip of the week</h2>
+<p><b>Time the lyrics together.</b> Open a song's lyrics editor, tap Now on the first line or two, then press the Lyric AI button. It times the rest around the lines you set; fix a couple and run it again.</p>
+<p class="news-link"><a href="#find">How lyrics work</a></p>
+</div>
+</section>
+</div>
+
+<nav class="verbs" aria-label="The parts of MediaVerse Studio"><div class="wrap">
+<a href="#rip"><b>rip</b><span>exact CD copies</span></a>
+<a href="#fix"><b>fix</b><span>tags put right</span></a>
+<a href="#find"><b>find</b><span>covers &amp; lyrics</span></a>
+<a href="#play"><b>play</b><span>a record shelf</span></a>
+<a href="#watch"><b>watch</b><span>the big screen</span></a>
+<a href="#connect"><b>connect</b><span>Jellyfin</span></a>
+<a href="#carry"><b>carry</b><span>on your phone</span></a>
+<a href="#cast"><b>cast</b><span>every room</span></a>
+<a href="#care"><b>care</b><span>for the collection</span></a>
+</div></nav>
+<div class="band band-paper">
 <section id="see" class="gallery wrap" aria-labelledby="see-title">
 <h2 id="see-title">See it</h2>
 <p class="gallery-intro">Real screens from recent builds. The library shown is a made-up demo collection: every artist, album, cover and lyric was invented for these pictures.</p>
@@ -61,7 +94,9 @@
 <figure class="shot"><img src="img/tv-album.jpg" alt="An album on the TV app: the cover large on the left, Play, Shuffle, Play next and Add to queue buttons, and the song list" width="1600" height="902" loading="lazy"><figcaption><b>Queue from the couch</b> Play, shuffle, play next or add to the queue.</figcaption></figure>
 </div>
 </section>
+</div>
 
+<div class="band band-sunset">
 <section class="why wrap" aria-labelledby="why-title">
 <h2 id="why-title">Why MediaVerse Studio</h2>
 <div class="why-grid">
@@ -75,10 +110,12 @@
 <div><h3>Built in the open</h3><p>Written in Rust and TypeScript, with a written plan, a decision log and tests behind every feature, so you can see how and why it works.</p></div>
 </div>
 </section>
+</div>
 
-<section id="features" class="feature-rows wrap" aria-label="Features">
+<div id="features" class="feature-rows-bands">
 
-<article class="row">
+<div class="band band-dark">
+<article id="rip" class="row wrap">
 <div class="words">
 <p class="verb">Rip</p>
 <h2>CD rips you can trust</h2>
@@ -98,8 +135,10 @@
 <div class="rip-note">AccurateRip: matched by 214 other rips</div>
 </div>
 </article>
+</div>
 
-<article class="row flip">
+<div class="band band-paper">
+<article id="fix" class="row wrap flip">
 <div class="words">
 <p class="verb">Fix</p>
 <h2>Years of messy tags, put right</h2>
@@ -120,8 +159,10 @@
 <div class="fix-actions"><em>Apply</em><em class="ghost">Undo</em></div>
 </div>
 </article>
+</div>
 
-<article class="row">
+<div class="band band-plum">
+<article id="find" class="row wrap">
 <div class="words">
 <p class="verb">Find</p>
 <h2>Every cover, every lyric, and an AI that listens</h2>
@@ -143,8 +184,10 @@
 <p class="far">until the morning came</p>
 </div>
 </article>
+</div>
 
-<article class="row flip">
+<div class="band band-paper">
+<article id="play" class="row wrap flip">
 <div class="words">
 <p class="verb">Play</p>
 <h2>A library that feels like a record shelf</h2>
@@ -158,8 +201,10 @@
 </div>
 <figure class="shot art-shot"><img src="img/pc-artist.jpg" alt="" width="1600" height="1001" loading="lazy"></figure>
 </article>
+</div>
 
-<article class="row">
+<div class="band band-dark">
+<article id="watch" class="row wrap">
 <div class="words">
 <p class="verb">Watch</p>
 <h2>Made for the big screen</h2>
@@ -174,8 +219,10 @@
 </div>
 <figure class="shot art-shot"><img src="img/tv-now-playing.jpg" alt="" width="1600" height="902" loading="lazy"></figure>
 </article>
+</div>
 
-<article class="row flip">
+<div class="band band-teal">
+<article id="connect" class="row wrap flip">
 <div class="words">
 <p class="verb">Connect</p>
 <h2>Jellyfin, built in</h2>
@@ -194,8 +241,10 @@
 <p class="hub-note">One place for the lists, every screen in step</p>
 </div>
 </article>
+</div>
 
-<article class="row">
+<div class="band band-paper">
+<article id="carry" class="row wrap">
 <div class="words">
 <p class="verb">Carry</p>
 <h2>Your home server, in your pocket</h2>
@@ -209,8 +258,10 @@
 </div>
 <figure class="shot art-shot"><img src="img/phone-home-sync.jpg" alt="" width="1426" height="1019" loading="lazy"></figure>
 </article>
+</div>
 
-<article class="row flip">
+<div class="band band-dark">
+<article id="cast" class="row wrap flip">
 <div class="words">
 <p class="verb">Cast</p>
 <h2>Every room, every speaker</h2>
@@ -233,8 +284,10 @@
 </div>
 </div>
 </article>
+</div>
 
-<article class="row">
+<div class="band band-paper">
+<article id="care" class="row wrap">
 <div class="words">
 <p class="verb">Care</p>
 <h2>Look after the collection</h2>
@@ -251,8 +304,10 @@
 <p class="scan-note">Possible click at 2:14 · listen</p>
 </div>
 </article>
-</section>
+</div>
+</div>
 
+<div class="band band-paper">
 <section class="everything wrap" aria-labelledby="everything-title">
 <h2 id="everything-title">And all the everyday things</h2>
 <ul class="ticks">
@@ -271,12 +326,48 @@
 <li>One-file installer: nothing else to download</li>
 </ul>
 </section>
+</div>
 
+<div class="band band-dark">
 <section class="free wrap" aria-labelledby="free-title">
-<h2 id="free-title">Free, and it stays free</h2>
+<h2 id="free-title">free, and it stays free</h2>
+<div class="prices">
+<div><b>free</b><span>Windows</span><small>the full program</small></div>
+<div><b>free</b><span>Android</span><small>with Android Auto</small></div>
+<div><b>free</b><span>Samsung TV</span><small>and Google TV next</small></div>
+<div><b>free</b><span>for good</span><small>open source, GPL</small></div>
+</div>
 <p>MediaVerse Studio is free software under the GNU General Public License, version 3 or later: anyone may use it, study it and share it, and every copy or changed version must stay free with its source code. There are no paid features, no adverts, no accounts and no tracking; your music and your library stay on your own devices (see <a href="privacy.html">Privacy</a>). The project is made in spare time and supported only by voluntary donations, which help pay for things such as developer registrations and test devices. The source code is moving to a public GitHub repository, and this page will link to it the day it opens.</p>
 </section>
+</div>
 
+<div id="compare" class="band band-paper">
+<section class="compare wrap" aria-labelledby="compare-title">
+<h2 id="compare-title">switching from MediaMonkey or MusicBee?</h2>
+<p class="compare-intro">Both are good players, and both are ahead of us in places. Here is an honest look, from each project's own website on 23 November 2026. We may have missed things; if so, <a href="mailto:contact@mediaverse.studio?subject=Comparison">tell us</a> and we will correct it.</p>
+<div class="table-scroll"><table class="compare-table">
+<thead><tr><th scope="col"></th><th scope="col">MediaVerse Studio</th><th scope="col">MediaMonkey</th><th scope="col">MusicBee</th></tr></thead>
+<tbody>
+<tr><th scope="row">Price and source</th><td class="us">Free, open source (GPL)</td><td>Free; Gold $39.95, or $99.95 for life</td><td>Free; not open source</td></tr>
+<tr><th scope="row">Windows program</th><td class="us">Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><th scope="row">Android app</th><td class="us">Yes, keeps your chosen music in step with your Jellyfin server</td><td>Yes, Wi-Fi sync with the PC</td><td>Syncs music to devices; no app of its own listed</td></tr>
+<tr><th scope="row">Samsung TV app</th><td class="us">Yes, made for the remote</td><td>Shares to TVs over DLNA</td><td>Not listed</td></tr>
+<tr><th scope="row">Casting</th><td class="us">Google Cast, DLNA and the TV app</td><td>Google Cast and DLNA</td><td>Not listed on its site</td></tr>
+<tr><th scope="row">Jellyfin server</th><td class="us">Built in: shared playlists and flags, or the whole library</td><td>Not listed</td><td>Not listed</td></tr>
+<tr><th scope="row">CD ripping, checked</th><td class="us">AccurateRip, decoded again after writing, defect scan, re-rip list</td><td>Yes; AccurateRip is a Gold feature</td><td>Yes</td></tr>
+<tr><th scope="row">Lyrics, time-stamped</th><td class="us">Lookup, an editor, and an AI that times the lines to the singing</td><td>Looks up lyrics</td><td>Not listed</td></tr>
+<tr><th scope="row">Gapless and crossfade</th><td class="us">Yes (within about 30 ms; sample-exact comes later)</td><td>Not listed</td><td>Gapless</td></tr>
+<tr><th scope="row">Volume levelling</th><td class="us">By whole album, with limits for old and dynamic recordings</td><td>Yes (automatic is Gold)</td><td>Yes</td></tr>
+<tr><th scope="row">Equalizer</th><td class="us">Ten bands</td><td>Ten bands</td><td>Ten or fifteen bands</td></tr>
+<tr class="ahead"><th scope="row">Audiophile output (WASAPI, ASIO)</th><td class="us">Not yet: planned</td><td>WASAPI</td><td>WASAPI and ASIO</td></tr>
+<tr class="ahead"><th scope="row">Skins and add-ons</th><td class="us">Twenty accent colours; no add-ons yet</td><td>Skins and add-ons</td><td>Skins and plugins</td></tr>
+<tr class="ahead"><th scope="row">Podcasts and radio</th><td class="us">Podcasts planned (kept apart from your music); radio later</td><td>Yes</td><td>Yes</td></tr>
+<tr class="ahead"><th scope="row">Video</th><td class="us">No</td><td>Yes</td><td>No</td></tr>
+</tbody></table></div>
+<p class="compare-note">Shaded rows are where they are ahead today. Names belong to their owners; MediaVerse Studio is not affiliated with MediaMonkey or MusicBee.</p>
+</section>
+</div>
+<div class="band band-night">
 <section id="beta" class="beta wrap" aria-labelledby="beta-title">
 <div class="beta-card">
 <h2 id="beta-title">Help us test it, and help us get it into the stores</h2>
@@ -306,12 +397,16 @@
 <p class="cta" style="justify-content:flex-start"><a class="button" href="mailto:contact@mediaverse.studio?subject=Beta%20tester&amp;body=Hello!%20I%27d%20like%20to%20help%20test%20MediaVerse%20Studio.%0D%0A%0D%0AMy%20devices%20(PC%2C%20Android%20phone%2C%20Samsung%20TV%20model%2C%20Google%20TV%2FChromecast%2C%20Jellyfin%20server%2C%20Linux)%3A%0D%0A%0D%0AHow%20big%20is%20my%20music%20collection%3A%0D%0A">Join the beta by e-mail</a><a class="button ghost" href="support.html">How testing works</a></p>
 </div>
 </section>
+</div>
 
+<div class="band band-paper">
 <section id="status" class="roadmap wrap" aria-labelledby="status-title">
 <h2 id="status-title">Where it is, and where it is going</h2>
 <div class="columns four">
 <div><h3>Working today</h3><ul>
-<li>Windows: library, playback, playlists, Now Playing</li>
+<li>Windows: library, playback, playlists, Now Playing, mini player</li>
+<li>Volume levelling by album, gapless, crossfade, equalizer</li>
+<li>Smart playlists and an Auto-DJ</li>
 <li>CD ripping with AccurateRip</li>
 <li>Fix tags, covers, lyrics, the Lyric AI, the defect scan</li>
 <li>Samsung TV app (Tizen)</li>
@@ -328,11 +423,14 @@
 <div><h3>Next</h3><ul>
 <li>The first public release and the public source on GitHub</li>
 <li>Google TV app, from the Android app</li>
-<li>Gapless playback and crossfade between songs</li>
+<li>Podcasts, kept apart from your music</li>
+<li>Applying the library organiser: renaming and moving files safely, with undo</li>
+<li>WASAPI output for audiophile setups</li>
 <li>Recognising songs by their sound (AcoustID)</li>
 </ul></div>
 <div><h3>Planned</h3><ul>
 <li>Linux builds, starting with an AppImage</li>
+<li>Scrobbling, star ratings, skins and add-ons</li>
 <li>Microsoft Store <small>(free signing, no warning screens)</small></li>
 <li>Google Play <small>(after the 14-day closed test)</small></li>
 <li>Samsung's TV app store</li>
@@ -340,6 +438,7 @@
 </div>
 <p class="roadmap-note">Not publicly released yet. To hear when it is, or to help test, write to <a href="mailto:contact@mediaverse.studio">contact@mediaverse.studio</a> or <a href="#beta">join the beta</a>.</p>
 </section>
+</div>
 </main>
 
 <footer class="foot"><div class="wrap">

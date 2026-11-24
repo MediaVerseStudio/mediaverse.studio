@@ -233,3 +233,85 @@ html { scroll-behavior: smooth; }
 .roadmap li small { color: #9c8b7f; }
 .tag { display: inline-block; margin-left: 0.35rem; padding: 0 0.45rem; border: 1px solid var(--line); border-radius: 99px; color: var(--ink-dim); font-size: 0.72rem; vertical-align: 0.08em; }
 .tag.new { border-color: var(--teal); color: #bfe3dd; }
+
+/* ==== 23 November 2026: bands of colour (after MusicBee's site), Zune's light lowercase type, a verb row and a comparison ==== */
+/* Each band is full width. The light ones redefine the colour tokens, so every component inside follows; drawn illustrations keep their dark panels. */
+.band { position: relative; padding: 0.5rem 0; background: var(--bg); color: var(--ink); }
+.band .art { --panel: #120d0a; --line: #2c1f18; --ink: #f4ece5; --ink-dim: #c9b7aa; --teal: #5fa69c; --copper: #e2793a; --copper-bright: #f39a5e; color: var(--ink); }
+.band-hero { padding: 0.5rem 0 1rem; overflow: hidden; background: #0a0706; isolation: isolate; }
+.band-hero::before { content: ""; position: absolute; inset: -40px; z-index: -1; background: linear-gradient(180deg, rgba(10, 7, 6, 0.3), rgba(10, 7, 6, 0.85)), url("img/pc-now-playing.jpg") center 30% / cover; filter: blur(22px) saturate(1.35) brightness(1.15); }
+.band-dark { background: linear-gradient(180deg, #0b0807, #130d0a); }
+.band-paper { --bg: #f3eee7; --panel: #ffffff; --line: #e1d6ca; --ink: #2a1d15; --ink-dim: #65564b; --copper: #c4571a; --copper-bright: #b04a12; --teal: #26786d; background: var(--bg); }
+.band-paper a { color: #b04a12; }
+.band-paper .button { background: #c4571a; border-color: #c4571a; color: #fff; }
+.band-paper .shot { box-shadow: 0 14px 34px rgba(60, 35, 15, 0.28); border-color: #d6c8ba; }
+.band-sunset { --bg: #5a2330; --panel: rgba(255, 255, 255, 0.1); --line: rgba(255, 255, 255, 0.22); --ink: #fff7f0; --ink-dim: #f3d9cc; --copper: #ffb07a; --copper-bright: #ffd2ad; background: linear-gradient(120deg, #7a2b2a 0%, #a8451f 45%, #5b2350 100%); }
+.band-plum { --bg: #20122c; --teal: #8fd2c8; background: radial-gradient(70% 90% at 0% 0%, rgba(226, 121, 58, 0.2), transparent 60%), linear-gradient(160deg, #1d1030, #2a1233 60%, #1a0f22); }
+.band-teal { --bg: #0d3a36; --panel: rgba(255, 255, 255, 0.08); --line: rgba(255, 255, 255, 0.2); --ink: #f2fbf9; --ink-dim: #cfe8e3; --teal: #9fe0d4; --copper: #ffb07a; --copper-bright: #ffcfa8; background: linear-gradient(135deg, #0b2f2c, #14544c 55%, #0d3a36); }
+.band-teal .art { --panel: #0a2623; --line: #1f5b53; --ink: #f2fbf9; --ink-dim: #cfe8e3; }
+.band-night { background: radial-gradient(60% 80% at 85% 10%, rgba(226, 121, 58, 0.3), transparent 60%), radial-gradient(50% 70% at 5% 90%, rgba(95, 166, 156, 0.22), transparent 60%), linear-gradient(180deg, #0d0a18, #161026); }
+.band-night .beta-card { background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(6px); border-color: rgba(255, 255, 255, 0.22); }
+
+/* Zune's type: large, light, lowercase headings with a thin rule under the section titles. */
+.hero2 h1 { font-weight: 300; font-size: clamp(2.2rem, 4.6vw, 3.5rem); letter-spacing: -0.01em; text-transform: lowercase; }
+.hero2 h1::first-line { color: var(--copper-bright); }
+.row h2, .gallery h2, .why h2, .everything h2, .free h2, .roadmap h2, .compare h2, .news h2, .beta-card h2 { font-weight: 300; text-transform: lowercase; letter-spacing: -0.005em; }
+.row h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); }
+.gallery h2, .why h2, .everything h2, .free h2, .roadmap h2, .compare h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); padding-bottom: 0.35rem; border-bottom: 1px solid var(--line); margin-bottom: 1rem; }
+.top nav a { text-transform: lowercase; }
+.shot figcaption b { display: block; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.78rem; margin: 0 0 0.1rem; }
+.band-paper .shot figcaption { background: #fff; border-top-color: #e1d6ca; }
+
+/* The feature rows are now one band each. */
+.feature-rows-bands .band { padding: 2.6rem 0; }
+.feature-rows-bands .row.wrap { gap: 2.5rem; }
+.band-sunset .why-grid > div { border-top-color: #ffd2ad; }
+
+/* What's new, and the tip of the week (Zune's home page). */
+.news { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; padding: 1rem 1rem 2.4rem; }
+.news h2 { font-size: 1.5rem; margin: 0 0 0.6rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+.news ul { margin: 0; padding-left: 1.1rem; color: var(--ink-dim); }
+.news li { margin: 0.35rem 0; }
+.news li b { color: var(--ink); font-weight: 600; }
+.news p { color: var(--ink-dim); margin: 0 0 0.6rem; }
+.news p b { color: var(--ink); }
+.news-note { font-size: 0.85rem; color: #a99a8e; }
+.news li::marker { color: var(--copper-bright); }
+@media (max-width: 52rem) { .news { grid-template-columns: 1fr; gap: 1.4rem; } }
+
+/* The verb row (MediaMonkey's Manage, Organize, Share...). */
+.verbs { background: linear-gradient(90deg, #c4571a, #a8451f 50%, #7a2b3a); position: relative; z-index: 1; }
+.verbs .wrap { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 0; padding-top: 0; padding-bottom: 0; max-width: 72rem; }
+@media (max-width: 62rem) { .verbs .wrap { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.verbs a { display: flex; flex-direction: column; padding: 0.8rem 0.7rem; color: #fff; text-decoration: none; border-left: 1px solid rgba(255, 255, 255, 0.18); }
+.verbs a:first-child { border-left: 0; }
+.verbs a:hover { background: rgba(0, 0, 0, 0.18); color: #fff; }
+.verbs b { font-weight: 300; font-size: 1.35rem; text-transform: lowercase; line-height: 1.1; }
+.verbs span { font-size: 0.8rem; opacity: 0.85; }
+
+/* Free, free, free (Zune Pass-style price tiles). */
+.prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1rem; margin: 1.2rem 0 1.6rem; }
+.prices > div { padding: 1.1rem 1.2rem; border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; }
+.prices b { font-weight: 300; font-size: 2.6rem; line-height: 1; color: var(--copper-bright); text-transform: lowercase; }
+.prices span { margin-top: 0.4rem; font-weight: 600; }
+.prices small { color: var(--ink-dim); }
+
+/* The honest comparison. */
+.compare-intro { color: var(--ink-dim); max-width: 52rem; }
+.table-scroll { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); background: var(--panel); }
+.compare-table { width: 100%; min-width: 46rem; border-collapse: collapse; font-size: 0.93rem; }
+.compare-table th, .compare-table td { padding: 0.65rem 0.8rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.compare-table thead th { font-weight: 600; background: #2a1d15; color: #fff; border-bottom: 0; }
+.compare-table thead th:nth-child(2) { background: #b04a12; }
+.compare-table tbody th { font-weight: 600; width: 15rem; color: var(--ink); }
+.compare-table td { color: var(--ink-dim); }
+.compare-table td.us { color: var(--ink); background: rgba(196, 87, 26, 0.07); }
+.compare-table tr.ahead th, .compare-table tr.ahead td:not(.us) { background: rgba(38, 120, 109, 0.1); }
+.compare-note { color: var(--ink-dim); font-size: 0.85rem; }
+
+@media (max-width: 40rem) {
+  .compare-table tbody th { width: 8rem; }
+  .band-hero::before { filter: blur(18px) saturate(1.2); }
+  .verbs .wrap { grid-template-columns: repeat(3, 1fr); }
+  .verbs a { border-bottom: 1px solid rgba(255, 255, 255, 0.18); }
+}
