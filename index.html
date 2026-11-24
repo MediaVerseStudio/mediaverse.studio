@@ -52,7 +52,9 @@
 <div>
 <h2>what's new in this build</h2>
 <ul>
-<li><b>Volume levelling by album.</b> Each album is brought to one even loudness as a whole, so soft songs stay soft and nothing is turned up too far.</li>
+<li><b>Volume levelling by album.</b> Quiet albums, older recordings above all, are brought up toward the level of a modern one, and nothing is ever turned down. It can be written into your files (ReplayGain tags) so Jellyfin and other devices hear it too, with one button to put every file back as it was.</li>
+<li><b>Exclusive (WASAPI) output,</b> an optional switch: FLAC, MP3 and WAV go straight to the sound card, bit-perfect at full volume, with songs joined on the very sample. Tried so far on a built-in sound card only; ASIO is not there yet.</li>
+<li><b>Progress bars</b> for the long jobs, such as reading a whole library, and a mini player that now opens properly.</li>
 <li><b>Gapless and crossfade</b> between songs, and a ten-band equalizer.</li>
 <li><b>Mini player,</b> media keys and taskbar buttons on Windows.</li>
 <li><b>Smart playlists</b> made of rules, and an Auto-DJ that keeps the music going.</li>
@@ -358,10 +360,10 @@
 <tr><th scope="row">Jellyfin server</th><td class="us">Built in: shared playlists and flags, or the whole library</td><td>Not listed</td><td>Not listed</td></tr>
 <tr><th scope="row">CD ripping, checked</th><td class="us">AccurateRip, decoded again after writing, defect scan, re-rip list</td><td>Yes; AccurateRip is a Gold feature</td><td>Yes</td></tr>
 <tr><th scope="row">Lyrics, time-stamped</th><td class="us">Lookup, an editor, and an AI that times the lines to the singing</td><td>Looks up lyrics</td><td>Not listed</td></tr>
-<tr><th scope="row">Gapless and crossfade</th><td class="us">Yes (within about 30 ms; sample-exact comes later)</td><td>Not listed</td><td>Gapless</td></tr>
-<tr><th scope="row">Volume levelling</th><td class="us">By whole album; older, quieter recordings are lifted more, and dynamic ones are protected</td><td>Yes (automatic is Gold)</td><td>Yes</td></tr>
+<tr><th scope="row">Gapless and crossfade</th><td class="us">Yes (sample-exact in exclusive output; within about 30 ms otherwise)</td><td>Not listed</td><td>Gapless</td></tr>
+<tr><th scope="row">Volume levelling</th><td class="us">By whole album: quiet and older recordings are lifted toward a modern level, nothing is turned down, and it can be written into your files for every device</td><td>Yes (automatic is Gold)</td><td>Yes</td></tr>
 <tr><th scope="row">Equalizer</th><td class="us">Ten bands</td><td>Ten bands</td><td>Ten or fifteen bands</td></tr>
-<tr class="ahead"><th scope="row">Audiophile output (WASAPI, ASIO)</th><td class="us">Not yet: planned</td><td>WASAPI</td><td>WASAPI and ASIO</td></tr>
+<tr class="ahead"><th scope="row">Audiophile output (WASAPI, ASIO)</th><td class="us">WASAPI exclusive, optional (FLAC, MP3, WAV; bit-perfect at full volume). ASIO: not yet</td><td>WASAPI</td><td>WASAPI and ASIO</td></tr>
 <tr><th scope="row">Skins and themes</th><td class="us">Your album art is the skin: colours and a wall of covers that follow what plays, with twenty highlight colours to choose from</td><td>Skins</td><td>Skins</td></tr>
 <tr class="ahead"><th scope="row">Add-ons and plugins</th><td class="us">No third-party add-ons yet. Much that other players leave to add-ons is built in (lyrics, covers, Jellyfin, casting), and you choose the AI models behind extras such as lyric timing</td><td>Add-ons, and some Winamp plugins</td><td>Plugins and a developer API</td></tr>
 <tr class="ahead"><th scope="row">Podcasts and radio</th><td class="us">Podcasts planned (kept apart from your music); radio later</td><td>Yes</td><td>Yes</td></tr>
@@ -409,6 +411,8 @@
 <div><h3>Working today</h3><ul>
 <li>Windows: library, playback, playlists, Now Playing, mini player</li>
 <li>Volume levelling by album, gapless, crossfade, equalizer</li>
+<li>Optional WASAPI exclusive output</li>
+<li>The library organiser: renaming and moving files with their lyrics, covers and playlists, with undo</li>
 <li>Smart playlists and an Auto-DJ</li>
 <li>CD ripping with AccurateRip</li>
 <li>Fix tags, covers, lyrics, the Lyric AI, the defect scan</li>
@@ -427,8 +431,7 @@
 <li>The first public release and the public source on GitHub</li>
 <li>Google TV app, from the Android app</li>
 <li>Podcasts, kept apart from your music</li>
-<li>Applying the library organiser: renaming and moving files safely, with undo</li>
-<li>WASAPI output for audiophile setups</li>
+<li>ASIO output, and levelling on the phone and TV apps</li>
 <li>Recognising songs by their sound (AcoustID)</li>
 </ul></div>
 <div><h3>Planned</h3><ul>
