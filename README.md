@@ -10,7 +10,7 @@ https://mediaverse.studio. Plain HTML and one stylesheet, no build step: edit a 
 - `CNAME`: the custom domain. DNS for mediaverse.studio is managed at Squarespace.
 - `cast/receiver.html`: the page Google Cast devices load (App ID 0E81A85C).
 
-## Before the application's repository goes public
+## Done when the application's repository went public (2026-11-25)
 
 - Add the link to https://github.com/MediaVerseStudio/MediaVerse-Studio on the home page (the "Free, and it stays free" section and the footer) and on the support page, and change "moving to a public GitHub repository" to plain words. Until it is public the link would not open.
 - Check `privacy.html` against the build that is released (every service the program contacts, the Jellyfin and Android paragraphs) and change its date.
