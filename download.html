@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download · MediaVerse Studio</title>
+<meta name="description" content="Download the MediaVerse Studio public beta for Windows 11 and Android, with checksums, the source code and the code signing policy.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="./">Media<span>Verse</span> Studio</a>
+<nav aria-label="Site"><a href="./">Home</a><a href="./#features">Features</a><a href="download.html" aria-current="page">Download</a><a href="./#beta">Beta</a><a href="./#status">Roadmap</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
+</div></header>
+
+<main class="page wrap">
+<h1>Download MediaVerse Studio</h1>
+<p>The current release is <b>0.9.0 (public beta)</b>, published on 25 November 2026. MediaVerse Studio is free software under the GNU GPL, version 3 or later: no adverts, no accounts, no tracking. It is a beta, so please back up your music before using the tools that change files (each has an undo), and <a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/issues/new/choose">tell us what you find</a>.</p>
+
+<h2>Windows 11</h2>
+<p class="cta" style="justify-content:flex-start"><a class="button" href="https://github.com/MediaVerseStudio/MediaVerse-Studio/releases/download/v0.9.0/MediaVerse-Studio-Setup.exe">Download the Windows installer (160 MB)</a></p>
+<ul>
+<li>A per-user installer: no administrator rights needed. Windows 11, 64-bit.</li>
+<li><b>This beta installer is not code signed yet</b> (see the code signing section below). Windows SmartScreen therefore says &ldquo;Windows protected your PC&rdquo;: choose <i>More info</i>, then <i>Run anyway</i>.</li>
+</ul>
+
+<h2>Android</h2>
+<p class="cta" style="justify-content:flex-start"><a class="button" href="https://github.com/MediaVerseStudio/MediaVerse-Studio/releases/download/v0.9.0/MediaVerse-Studio-0.9.0.apk">Download the Android app (12 MB)</a></p>
+<ul>
+<li>Android 11 or newer. Open the file on your phone and allow &ldquo;install unknown apps&rdquo; for the app you opened it from. It is signed with the project&rsquo;s own key. A Google Play version comes later; if you install that, uninstall this one first.</li>
+</ul>
+
+<h2>Samsung TVs, Google TV and Linux</h2>
+<ul>
+<li><b>Samsung TVs:</b> the app works on real TVs but is not a download: a Tizen app only installs on TVs named in its developer&rsquo;s certificate, so it will reach you through Samsung&rsquo;s store beta. You can also build and sign it for your own TV (<a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/blob/main/docs/tv-apps.md">instructions</a>).</li>
+<li><b>Google TV</b> (from the Android app) and <b>Linux</b> (an AppImage first) are planned.</li>
+</ul>
+
+<h2>Source code and checking your download</h2>
+<p><a class="button ghost" href="https://github.com/MediaVerseStudio/MediaVerse-Studio/releases/download/v0.9.0/MediaVerse-Studio-Source-5410c53.zip">Source bundle for this build (19 MB)</a> <a class="button ghost" href="https://github.com/MediaVerseStudio/MediaVerse-Studio">The repository on GitHub</a> <a class="button ghost" href="https://github.com/MediaVerseStudio/MediaVerse-Studio/releases/tag/v0.9.0">Release notes and all files</a></p>
+<p>The source bundle holds the program&rsquo;s source and the exact third-party source archives it uses (libcdio, LAME and libiconv are GPL or LGPL, so the source is offered with the program). To check a download, run <code>Get-FileHash &lt;file&gt;</code> in PowerShell and compare it with the SHA-256 value here:</p>
+<ul>
+<li>MediaVerse-Studio-Setup.exe<br><code style="word-break:break-all">71fdcdb019e05909471e9c362f611c536f21d9a424ea52fac1b32b4de8325749</code></li>
+<li>MediaVerse-Studio-0.9.0.apk<br><code style="word-break:break-all">83a5a0c5d4393f1c49dc49a7feaf2d85d4b03daf203b6f03dc0688499be54e3a</code></li>
+<li>MediaVerse-Studio-Source-5410c53.zip<br><code style="word-break:break-all">b05e616db05a269bad8ca1e073d743773f5dfcf8ecd9fa8ac1d1f3507c68dc11</code></li>
+</ul>
+
+<h2 id="signing">Code signing policy</h2>
+<p>This project uses the <a href="https://signpath.org/">SignPath Foundation</a> for code signing. <b>Free code signing provided by <a href="https://signpath.io/">SignPath.io</a>, certificate by SignPath Foundation.</b></p>
+<ul>
+<li><b>Status:</b> the 0.9.0 beta installer above is not signed yet. Windows installers published on this page after the SignPath Foundation certificate is in use are signed, and this page will say so.</li>
+<li><b>What is signed:</b> only the project&rsquo;s own Windows installer and program files, built from the public source in this repository. Nothing from other projects is signed with this certificate.</li>
+<li><b>Roles:</b> the committer, reviewer and approver is the project owner, Kris Turner (<a href="https://github.com/kris-sparky">@kris-sparky</a>). Every release is approved by hand before it is signed.</li>
+<li><b>Privacy:</b> the program does not send your music, your library or any usage data anywhere, and has no telemetry. It contacts an outside service only for a feature you use (for example MusicBrainz for a disc lookup, or LRCLIB for lyrics), sending only what that lookup needs. Details: <a href="privacy.html">privacy</a>.</li>
+</ul>
+
+<h2>Help and feedback</h2>
+<p>Questions, problems and ideas go on the <a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/issues/new/choose">GitHub issue board</a>. More on <a href="support.html">the support page</a>.</p>
+</main>
+
+<footer class="foot"><div class="wrap">
+<p>MediaVerse Studio is free software under the GNU GPL, version 3 or later. No ads, no tracking.</p>
+<p><a href="https://github.com/MediaVerseStudio/MediaVerse-Studio">Source on GitHub</a> &middot; <a href="download.html">Download</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="support.html">Support</a></p>
+</div></footer>
+</body>
+</html>
