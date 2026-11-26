@@ -14,4 +14,4 @@ https://mediaverse.studio. Plain HTML and one stylesheet, no build step: edit a 
 
 - Add the link to https://github.com/MediaVerseStudio/MediaVerse-Studio on the home page (the "Free, and it stays free" section and the footer) and on the support page, and change "moving to a public GitHub repository" to plain words. Until it is public the link would not open.
 - Check `privacy.html` against the build that is released (every service the program contacts, the Jellyfin and Android paragraphs) and change its date.
-- Screenshots show an invented demo library (`img/`); new ones for the Jellyfin settings, the lyrics editor and the re-rip list are still to be made from the demo library.
+- Screenshots show an invented demo library (`img/`); the Windows ones were retaken on 2026-11-25 from the current build with `web/app/scripts/capture-website-2026-11-25.cjs` in the application repository (a throwaway data folder, so no real music or settings appear). Still to retake: the TV and phone pictures, and new ones for the Jellyfin settings and the re-rip list.
