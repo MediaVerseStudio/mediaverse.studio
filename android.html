@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android · MediaVerse Studio</title>
+<meta name="description" content="The MediaVerse Studio Android app: play your own music, use it in Android Auto, keep chosen albums in step with your computer or Jellyfin server, and play to the TV. Free and open source.">
+<meta property="og:image" content="https://mediaverse.studio/img/phone-albums.jpg">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="./"><img src="img/emblem.png" alt="" width="46" height="32"><b>Media<span>Verse</span> Studio</b></a>
+<nav aria-label="Site"><a href="./">Home</a><a href="windows.html">Windows</a><a href="android.html" aria-current="page">Android</a><a href="tv.html">Smart TV</a><a href="jellyfin.html">Jellyfin</a><a href="linux.html">Linux</a><a href="download.html">Download</a><a href="roadmap.html">Roadmap</a><a href="support.html">Support</a></nav>
+</div></header>
+
+<main>
+<div class="band band-hero">
+<section class="hero tall wrap">
+<div>
+<p class="verb">Android</p>
+<h1><span>Your music, with you,</span> in step with home.</h1>
+<p>A player for the music stored on your phone, in the same look as the computer and the TV. Choose what to keep from home, and it plays anywhere: no signal, no buffering, no subscription.</p>
+<p class="cta"><a class="button" href="download.html">Download the Android app</a><a class="button ghost" href="#sync">How syncing works</a></p>
+<p class="status">Public beta 0.9.1 · Android 11 or newer · installed from the .apk (Google Play comes later)</p>
+</div>
+<figure class="shot"><img src="img/phone-lyrics.jpg" alt="Now Playing on Android with time-stamped lyrics, flag and heart buttons, and playback controls" width="640" height="1318"></figure>
+</section>
+</div>
+
+<div class="band band-paper">
+<section class="wrap" aria-labelledby="play-title">
+<p class="verb">Play</p>
+<h2 id="play-title">A proper player</h2>
+<div class="phones">
+<figure class="shot"><img src="img/phone-albums.jpg" alt="The albums tab on Android" width="640" height="1318" loading="lazy"><figcaption><b>Your albums</b> Artists, genres, albums, songs, favorites, playlists and queue.</figcaption></figure>
+<figure class="shot"><img src="img/phone-album.jpg" alt="An album page on Android with the cover, play and shuffle buttons and the song list" width="640" height="1318" loading="lazy"><figcaption><b>Album pages</b> Play, shuffle, play next or add to the queue.</figcaption></figure>
+<figure class="shot"><img src="img/phone-lyrics.jpg" alt="Lyrics following the song on Android" width="640" height="1318" loading="lazy"><figcaption><b>Lyrics</b> Those saved in the song's tags; time-stamped ones follow along.</figcaption></figure>
+</div>
+<ul class="ticks">
+<li>Plays with the screen off, with lock screen and notification controls</li>
+<li>Search, and an A to Z strip on long lists</li>
+<li>Playlists, smart lists and favorites</li>
+<li>Sleep timer and bookmarks inside long songs</li>
+<li>An equalizer that remembers each speaker, headphone and Bluetooth device</li>
+<li>Comes back to the same song and place</li>
+<li>Highlight colors to match your taste</li>
+<li>Flag a song that sounds wrong, to fix at the computer</li>
+</ul>
+</section>
+</div>
+
+<div class="band band-dark">
+<section class="wrap" aria-labelledby="car-title">
+<p class="verb">Drive</p>
+<h2 id="car-title">Android Auto</h2>
+<p class="lead">Browse artists, albums, genres and songs on the car's screen, search by voice, and control what is playing. Android Auto draws its own screens, so it looks like your car, not like the phone.</p>
+<p class="note">Until the app is on Google Play, switch on <b>Unknown sources</b> in Android Auto's developer settings (open Android Auto's settings, tap the version ten times, then Developer settings) so the car will list it.</p>
+</section>
+</div>
+
+<div id="sync" class="band band-teal">
+<section class="wrap" aria-labelledby="sync-title">
+<p class="verb">Sync</p>
+<h2 id="sync-title">Keep what you choose, from your computer or your server</h2>
+<p class="lead">Pair with MediaVerse Studio on your computer over Wi-Fi <span class="tag">new</span>, or sign in to your <a href="jellyfin.html">Jellyfin server</a> with a code. Both work on your home network only.</p>
+<div class="phones">
+<figure class="shot"><img src="img/phone-choose.jpg" alt="Choosing artists to keep on the phone, with tick boxes" width="640" height="1318" loading="lazy"><figcaption><b>Choose</b> Artists, albums, playlists or the whole library.</figcaption></figure>
+<figure class="shot"><img src="img/phone-sync.jpg" alt="The sync page: Sync everything, Sync 5 minutes' worth, the result, and the list kept on the phone" width="640" height="1318" loading="lazy"><figcaption><b>Sync</b> Everything, or five minutes' worth, or by itself when you get home and open the app.</figcaption></figure>
+</div>
+<div class="facts four">
+<div><h3>Edits come down</h3><p>Fix a tag, cover or lyric at home and the next sync brings the new version to the phone.</p></div>
+<div><h3>Both ways</h3><p>Favorites, flags and playlists stay in step between the phone and home.</p></div>
+<div><h3>Careful with your music</h3><p>Songs go into the phone's Music folder. Music already there is recognized and not downloaded twice. The app removes only songs it added, and replaces your own copies only if you switch that on and allow it.</p></div>
+<div><h3>Send new music home</h3><p>Albums you bought on the phone can be sent to your computer's incoming folder. <span class="tag">new</span> Sending to a Jellyfin server needs our plugin, which is still a test version.</p></div>
+</div>
+<p class="note">Wi-Fi sync with a computer is new in 0.9.1 and has had little use on real phones. A phone pairs with one computer at a time, and the computer program must be open.</p>
+</section>
+</div>
+
+<div class="band band-paper">
+<section class="wrap" aria-labelledby="out-title">
+<p class="verb">Share</p>
+<h2 id="out-title">Play it out loud</h2>
+<div class="facts four">
+<div><h3>On the TV</h3><p>With the TV app playing from your phone's library, send it the queue and the phone becomes the remote; bring the music back to the same spot.</p></div>
+<div><h3>Chromecast and speakers</h3><p>Cast to Google Cast devices and DLNA TVs and speakers on your home Wi-Fi. <span class="tag">in testing</span></p></div>
+<div><h3>Phone as the library</h3><p>Switch on sharing and a paired TV can browse and play the music on the phone.</p></div>
+<div><h3>Profiles</h3><p>On a Jellyfin server, each person on a shared phone can have their own favorites, playlists and play counts. <span class="tag">new</span></p></div>
+</div>
+</section>
+</div>
+
+<div class="band band-night">
+<section class="wrap" aria-labelledby="install-title">
+<div class="callout">
+<h2 id="install-title">Installing it</h2>
+<p>Download the <b>.apk</b>, open it on the phone, and allow "install unknown apps" for the app you opened it from. Updating from 0.9.0 keeps your data. It asks for access to your music, to pictures (for album covers kept in your music folders), to notifications and to devices on your local network. See <a href="privacy.html">Privacy</a>.</p>
+<p class="cta"><a class="button" href="download.html">Download</a></p>
+</div>
+</section>
+</div>
+</main>
+
+<footer class="foot"><div class="wrap">
+<p>MediaVerse Studio is free software under the GNU GPL, version 3 or later. No ads, no tracking. Screenshots show an invented demo library.</p>
+<p><a href="https://github.com/MediaVerseStudio/MediaVerse-Studio">Source on GitHub</a> · <a href="download.html">Download</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/issues">Questions and problems</a></p>
+</div></footer>
+</body>
+</html>

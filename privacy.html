@@ -5,48 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy · MediaVerse Studio</title>
 <meta name="description" content="What MediaVerse Studio does and does not do with your information.">
-<link rel="icon" href="logo.png">
+<link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
-<a class="brand" href="./">Media<span>Verse</span> Studio</a>
-<nav aria-label="Site"><a href="./">Home</a><a href="./#features">Features</a><a href="download.html">Download</a><a href="./#beta">Beta</a><a href="./#status">Roadmap</a><a href="privacy.html" aria-current="page">Privacy</a><a href="support.html">Support</a></nav>
+<a class="brand" href="./"><img src="img/emblem.png" alt="" width="46" height="32"><b>Media<span>Verse</span> Studio</b></a>
+<nav aria-label="Site"><a href="./">Home</a><a href="windows.html">Windows</a><a href="android.html">Android</a><a href="tv.html">Smart TV</a><a href="jellyfin.html">Jellyfin</a><a href="linux.html">Linux</a><a href="download.html">Download</a><a href="roadmap.html">Roadmap</a><a href="support.html">Support</a></nav>
 </div></header>
 
 <main class="page wrap">
 <h1>Privacy</h1>
-<p class="updated">Last updated 24 November 2026</p>
+<p class="updated">Last updated 27 November 2026 (version 0.9.1)</p>
 
-<p>MediaVerse Studio is a free project made in spare time. It has no accounts, no advertising and no analytics, and it does not collect information about you. Your music, your library and your settings stay on your own devices.</p>
+<p>MediaVerse Studio is a free project made in spare time. It has no accounts, no advertising and no analytics, and the project does not collect information about you. Your music, your library and your settings stay on your own devices.</p>
 
 <h2>The Windows program</h2>
 <p>Your library, favorites, flags, listening history and settings are kept in the program's data folder on your computer. Nothing is sent to us.</p>
-<p>To look things up, the program contacts these public music services directly, only when you use a feature that needs them:</p>
+<p>To look things up, the program contacts these outside services directly, only when you use a feature that needs them:</p>
 <ul>
-<li><strong>MusicBrainz</strong> and the <strong>Cover Art Archive</strong>: a disc's identifier or table of contents, or an album and artist name, to find album details and covers.</li>
-<li><strong>gnudb</strong>: a disc's identifier, to find album details. gnudb asks every program for a contact e-mail address; the program sends the one you enter in Settings.</li>
+<li><strong>MusicBrainz</strong> and the <strong>Cover Art Archive</strong> (whose pictures are stored at the <strong>Internet Archive</strong>): a disc's identifier or table of contents, or album, artist and song names, to find album details and covers.</li>
+<li><strong>gnudb</strong>: a disc's identifier, to find album details; and a disc's details if you choose to submit them.</li>
+<li><strong>CUETools Database</strong>: a disc's table of contents, to find album details.</li>
 <li><strong>AccurateRip</strong>: a disc's identifier, to check that a rip is exact.</li>
 <li><strong>LRCLIB</strong>: a song's title, artist, album and length, to find its lyrics.</li>
-<li><strong>AcoustID</strong> (being added): an audio fingerprint and a song's length, to recognise a song, using the application key you enter in Settings.</li>
-<li><strong>Discogs</strong> (optional, only if you add your own Discogs access token): artist and album names, to find album details and covers.</li>
+<li><strong>AcoustID</strong> (only when you switch it on): an audio fingerprint and a song's length, to recognize a song.</li>
+<li><strong>Apple's iTunes search</strong> and <strong>Deezer</strong>: album and artist names, when searching for a release by name, and their cover pictures.</li>
+<li><strong>Discogs</strong>: album and artist names, to find album details and covers. Some of this needs your own Discogs access token.</li>
+<li><strong>Wikidata</strong> and <strong>Wikimedia Commons</strong>: an artist's identifier, when you look for free artist photos.</li>
+<li><strong>TheAudioDB</strong> and <strong>Fanart.tv</strong> (only if you add your own keys): an artist's identifier, for artist photos.</li>
 </ul>
-<p>Each service receives your computer's internet address, as any website does, and handles it under its own privacy policy. MediaVerse Studio identifies itself to these services by name and version so that they can see which program is asking.</p>
+<p>MusicBrainz, gnudb and LRCLIB ask programs to say who is using them: if you enter an e-mail address when setting up, it is sent to them with lookups and to nobody else. Consider an address made for this.</p>
+<p>Each service receives your computer's internet address, as any website does, and handles what it receives under its own privacy policy. MediaVerse Studio identifies itself to these services by name and version. Buttons such as <b>Search the web</b> open your own web browser at a search or database page; that visit is between your browser and the site.</p>
 
-<h2>TVs and speakers in your home</h2>
-<p>If you choose to share your library with TVs (Settings &gt; TV), the program answers MediaVerse TV apps on your home network that you have paired with a code, and only devices with home-network addresses. If you also turn on the search for TVs and speakers (Settings &gt; Cast, off until you turn it on), it asks devices on your home network to make themselves known (Google Cast and DLNA), and when you choose one it sends that device a link to the song, its title, artist, album and cover. Those links work only on your home network and stop working after a few hours. A Google Cast device (Chromecast, Google TV) shows MediaVerse Studio's player page, which it loads from this website together with Google's receiver library from Google; the song itself, its cover and its lyrics still come only from your computer, over your home network.</p>
+<h2>Phones, TVs and speakers in your home</h2>
+<p>If you switch on sharing (Settings &gt; TV &amp; Phone Pairing), the program answers only MediaVerse apps on your home network that you have paired with a code. A paired TV can browse and play your library and mark favorites and flags. A paired phone can also copy the songs you choose, keep favorites, flags and playlists in step both ways, and, only if you allow it, send new music into an incoming folder on your computer. Your folder paths are not shown to them, and devices outside your home network are refused.</p>
+<p>If you also turn on the search for TVs and speakers (Settings &gt; Cast, off until you turn it on), the program asks devices on your home network to make themselves known (Google Cast and DLNA), and when you choose one it sends that device a link to the song, its title, artist, album and cover. Those links work only on your home network and stop working after a few hours. A Google Cast device shows MediaVerse Studio's player page, which it loads from this website together with Google's receiver library from Google; the song, its cover and its lyrics still come only from your computer, over your home network.</p>
 
 <h2>The Lyric AI</h2>
 <p>The Lyric AI, which checks and times lyrics by listening to a song, runs on your own computer with models you add yourself. It does not send your music, or anything about it, to us or to anyone else. Looking up lyrics for a song still goes to LRCLIB as described above.</p>
 
 <h2>Your Jellyfin server</h2>
-<p>MediaVerse Studio can work with a Jellyfin media server that you run. It talks to that server only at a home-network address (a private address on your own network, or this computer), never to a server on the internet. You sign in with Jellyfin's Quick Connect code; the sign-in token that Jellyfin gives back is kept on your own device (and held in the program's memory while it plays songs from the server). Using the server, the program reads your song list, covers and lyrics, and it reads and writes playlists, including the playlists named "Problem tracks" and "Problem Playlist" that carry songs you flagged on a phone, a TV or the computer. When you cast a song from the server to a TV or speaker, the link given to that device on your home network contains the sign-in token, as Jellyfin's own casting does; sign out in Settings > Jellyfin, or end the session on the server, to make it stop working. None of this goes to us.</p>
+<p>MediaVerse Studio can work with a Jellyfin media server that you run. It talks to that server only at a home-network address, never to a server on the internet. You sign in with Jellyfin's Quick Connect code, and the sign-in token is kept on your own device. Using the server, the apps read your song list, covers and lyrics; read and write playlists, including the lists that carry flagged songs; and, on the phone and TV, favorites. If you make profiles, an administrator's name and password are asked once to create the Jellyfin users and are not kept; a profile has no password, so anyone on your home network can use it, and remote access is switched off for it. If you install our test plugin and allow it, a phone can send new music to a folder on your server.</p>
+<p>When you cast a song from the server to a TV or speaker, the link given to that device on your home network contains the sign-in token, as Jellyfin's own casting does; sign out in the program, or end the session on the server, to make it stop working. None of this goes to us.</p>
 
 <h2>The TV app</h2>
-<p>The Samsung TV app talks to MediaVerse Studio on your own computer over your home network, after a one-time pairing code, or to a Jellyfin server you choose (signing in with a code), or reads a USB drive plugged into the TV. Profiles and favorites made on the TV are kept on the TV; songs you flag on the TV go to your own Jellyfin server if you use one. The app does not send anything to us.</p>
+<p>The Samsung TV app talks to MediaVerse Studio on your computer or phone after a one-time pairing code, or to a Jellyfin server you choose, or reads a USB drive plugged into the TV. It looks only on your home network. Names and favorites made on the TV are kept on the TV, or with your computer or server when you play from one. The app does not send anything to us.</p>
 
 <h2>The Android app</h2>
-<p>The Android app plays music stored on your phone and can send what it plays to TVs and speakers on your home network. If you sign in to your own Jellyfin server (at a home-network address, with a code), it can fetch the artists, albums and playlists you choose from that server into the phone's Music folder when the phone is on your home Wi-Fi, bring back edits made on the server, take off songs you stop keeping, and share playlists and flagged songs with the server. The sign-in token stays on the phone. Songs fetched this way are ordinary files on your phone, which you can also remove yourself. It asks for access to the audio files on your phone and to the network for these purposes only. It has no accounts, no advertising and no analytics, and it does not send anything to us.</p>
+<p>The Android app plays music stored on your phone and can send what it plays to TVs and speakers on your home network. If you pair it with your computer, or sign in to your Jellyfin server, it can copy the music you choose into the phone's Music folder when you are on your home network, bring back edits, remove songs it added that you stop keeping, keep favorites, flags and playlists in step, and send new music home when you choose to. It replaces copies you put on the phone yourself only if you switch that on and allow it. The keys that let it talk to your computer or server stay on the phone.</p>
+<p>It asks for access to your music; to pictures, so it can show album covers kept in your music folders; to notifications, for the playback controls; and to devices on your local network. If you switch on sharing on the phone, paired TVs on your home network can browse and play its music. It has no accounts, advertising or analytics, and it does not send anything to us.</p>
 
 <h2>This website</h2>
 <p>This website is hosted by GitHub Pages and sets no cookies of its own. GitHub may log visitors' internet addresses for security, as described in GitHub's privacy statement.</p>
@@ -57,12 +65,12 @@
 <p>The program's source code, downloads and issue board are on GitHub. Anything you post there, including your GitHub name, is public, and GitHub handles it under its own <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">privacy statement</a>. Please do not post addresses, passwords or private details in an issue.</p>
 
 <h2>Changes</h2>
-<p>If the program's behaviour changes in a way that affects this page, this page will be updated first, with a new date at the top.</p>
+<p>If the program's behavior changes in a way that affects this page, this page will be updated, with a new date at the top.</p>
 </main>
 
 <footer class="foot"><div class="wrap">
 <p>MediaVerse Studio is free software under the GNU GPL, version 3 or later. No ads, no tracking.</p>
-<p><a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/issues">Questions and problems: the GitHub issue board</a></p>
+<p><a href="https://github.com/MediaVerseStudio/MediaVerse-Studio">Source on GitHub</a> · <a href="download.html">Download</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/issues">Questions and problems</a></p>
 </div></footer>
 </body>
 </html>

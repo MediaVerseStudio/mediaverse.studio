@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart TV · MediaVerse Studio</title>
+<meta name="description" content="The MediaVerse Studio TV app for Samsung TVs: browse your own library with the remote, read lyrics on the big screen, and play from your computer, a Jellyfin server or a USB drive.">
+<meta property="og:image" content="https://mediaverse.studio/img/tv-now-playing.jpg">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="./"><img src="img/emblem.png" alt="" width="46" height="32"><b>Media<span>Verse</span> Studio</b></a>
+<nav aria-label="Site"><a href="./">Home</a><a href="windows.html">Windows</a><a href="android.html">Android</a><a href="tv.html" aria-current="page">Smart TV</a><a href="jellyfin.html">Jellyfin</a><a href="linux.html">Linux</a><a href="download.html">Download</a><a href="roadmap.html">Roadmap</a><a href="support.html">Support</a></nav>
+</div></header>
+
+<main>
+<div class="band band-hero">
+<section class="hero wrap">
+<div>
+<p class="verb">Smart TV</p>
+<h1><span>The living room</span> jukebox.</h1>
+<p>A real TV app, not a phone screen stretched: your covers large, the lyrics big enough to sing along to from the couch, and everything reachable with the remote. Currently for Samsung TVs.</p>
+<p class="cta"><a class="button" href="#get">How to get it</a><a class="button ghost" href="#screens">See the screens</a></p>
+<p class="status">Samsung (Tizen) only · tried on 2025 models · not in Samsung's store yet</p>
+</div>
+<figure class="shot"><img src="img/tv-now-playing.jpg" alt="Now Playing on the TV: cover, artist, album and year at the top, large lyrics with the line being sung highlighted, a wall of covers behind" width="1600" height="902"></figure>
+</section>
+</div>
+
+<div id="screens" class="band band-paper">
+<section class="wrap" aria-labelledby="screens-title">
+<p class="verb">Browse</p>
+<h2 id="screens-title">Built for the remote</h2>
+<p class="lead">Artists, albums, genres and songs, search with an on-screen keyboard or the number buttons, an A to Z jump, and a back bar always one press away.</p>
+<div class="gallery">
+<figure class="shot"><img src="img/tv-albums.jpg" alt="The TV library: a grid of album covers with an A to Z bar" width="1600" height="902" loading="lazy"><figcaption><b>Library</b> Big tiles and a letter jump.</figcaption></figure>
+<figure class="shot"><img src="img/tv-album.jpg" alt="An album on the TV with Play, Shuffle, Play next and Add to queue buttons" width="1600" height="902" loading="lazy"><figcaption><b>Queue from the couch</b> Play, shuffle, play next or add to the queue.</figcaption></figure>
+</div>
+</section>
+</div>
+
+<div class="band band-plum">
+<section class="wrap" aria-labelledby="listen-title">
+<p class="verb">Listen</p>
+<h2 id="listen-title">Made to be left on</h2>
+<div class="facts">
+<div><h3>Lyrics</h3><p>Time-stamped lyrics follow the song across the middle of the screen. Songs without them get a visualizer or a soft glow, your choice.</p></div>
+<div><h3>A wall of covers</h3><p>Your albums turn slowly behind the song, in their own colors or washed with one you pick.</p></div>
+<div><h3>Kind to OLED</h3><p>The layout keeps changing gently, and the TV's screen saver is held off while music plays.</p></div>
+<div><h3>Picks up again</h3><p>Reopen the app and the queue is back, paused at the same place.</p></div>
+<div><h3>Who's listening?</h3><p>Each person gets their own favorites, from names kept on the TV or from <a href="jellyfin.html">Jellyfin profiles</a> with their own playlists too.</p></div>
+<div><h3>Flag a problem</h3><p>Hear a skip? Flag it, and it shows up on the computer's review list.</p></div>
+</div>
+</section>
+</div>
+
+<div class="band band-teal">
+<section class="wrap" aria-labelledby="source-title">
+<p class="verb">Connect</p>
+<h2 id="source-title">Where the music comes from</h2>
+<div class="facts four">
+<div><h3>Your computer</h3><p>Switch on sharing in MediaVerse Studio; the TV finds the computer, and you pair them once with a six-digit code. The program needs to be open.</p></div>
+<div><h3>A Jellyfin server</h3><p>Sign in with a Quick Connect code, no password to type with a remote. Plays whenever the server is running.</p></div>
+<div><h3>A USB drive</h3><p>Plug it into the TV. Reading a large drive is slower than playing over the network.</p></div>
+<div><h3>Your phone</h3><p>The Android app can share the phone's music with the TV, or send it a queue and act as the remote.</p></div>
+</div>
+<p class="note">The TV streams: it does not keep copies of your music. Playlists on the TV are for playing; make and change them on the computer or the phone.</p>
+</section>
+</div>
+
+<div id="get" class="band band-night">
+<section class="wrap" aria-labelledby="get-title">
+<div class="callout">
+<h2 id="get-title">Getting it onto a TV</h2>
+<p>There is no download yet. Samsung only installs an app on TVs named in its developer's certificate, so other people will get it through Samsung's store beta. If you are comfortable with developer tools, you can build and sign it for your own TV today.</p>
+<p><b>Google TV</b> is next, built from the Android app. Until then, Google TV and Chromecast devices can receive music <a href="windows.html#share">cast from the computer</a> or the phone.</p>
+<p class="cta"><a class="button" href="https://github.com/MediaVerseStudio/MediaVerse-Studio/blob/main/docs/tv-apps.md">Build it yourself</a><a class="button ghost" href="support.html">Join the TV testers</a></p>
+</div>
+</section>
+</div>
+</main>
+
+<footer class="foot"><div class="wrap">
+<p>MediaVerse Studio is free software under the GNU GPL, version 3 or later. Samsung and Tizen are trademarks of their owners. Screenshots show an invented demo library.</p>
+<p><a href="https://github.com/MediaVerseStudio/MediaVerse-Studio">Source on GitHub</a> · <a href="download.html">Download</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/issues">Questions and problems</a></p>
+</div></footer>
+</body>
+</html>

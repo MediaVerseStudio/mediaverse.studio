@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jellyfin · MediaVerse Studio</title>
+<meta name="description" content="How MediaVerse Studio works with a Jellyfin media server on your home network: shared playlists and flagged songs, music kept on your phone, playing on the TV, and profiles. Optional.">
+<meta property="og:image" content="https://mediaverse.studio/img/pc-now-playing.jpg">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="./"><img src="img/emblem.png" alt="" width="46" height="32"><b>Media<span>Verse</span> Studio</b></a>
+<nav aria-label="Site"><a href="./">Home</a><a href="windows.html">Windows</a><a href="android.html">Android</a><a href="tv.html">Smart TV</a><a href="jellyfin.html" aria-current="page">Jellyfin</a><a href="linux.html">Linux</a><a href="download.html">Download</a><a href="roadmap.html">Roadmap</a><a href="support.html">Support</a></nav>
+</div></header>
+
+<main>
+<div class="band band-teal">
+<section class="wrap" aria-labelledby="jf-title">
+<p class="verb">Jellyfin integration</p>
+<h1 id="jf-title">Better with a server, fine without one.</h1>
+<p class="lead"><a href="https://jellyfin.org/">Jellyfin</a> is a free media server you run at home. MediaVerse Studio works completely without it. Add it, and your music, playlists and flagged songs have a home that stays on when your computer is off.</p>
+<div class="house">
+<div class="node"><b>Computer</b><span>Edits and rips the files; brings playlists and flags into step</span></div>
+<div class="link">both ways</div>
+<div class="node main"><b>Your Jellyfin server</b><span>music · playlists<br>flagged songs · profiles</span></div>
+<div class="links"><div class="link">keeps music</div><div class="link">streams</div></div>
+<div class="stack">
+<div class="node"><b>Android phones</b><span>Keep chosen music; favorites, flags and playlists both ways</span></div>
+<div class="node"><b>Samsung TVs</b><span>Browse and play from the server</span></div>
+</div>
+</div>
+<p class="note">Sign in on each device with Jellyfin's Quick Connect code. The apps talk only to a server at a home-network address.</p>
+</section>
+</div>
+
+<div class="band band-paper">
+<section class="wrap" aria-labelledby="pc-title">
+<p class="verb">On the computer</p>
+<h2 id="pc-title">Two ways to use it</h2>
+<div class="facts">
+<div><h3>Share the server's folder <span class="tag">recommended</span></h3><p>Make the server's music share your music folder. Ripping, tag repair, covers, lyrics and organizing all work, and the server can be asked to rescan after you save.</p></div>
+<div><h3>The server alone <span class="tag">in testing</span></h3><p>Use the server as the whole library, with no folder. You can play and cast; tools that change files are hidden, because Jellyfin does not let other programs change them.</p></div>
+<div><h3>Finding the server</h3><p>A helper looks for servers on your network, checks that a TV could sign in and that the firewall lets it through, and walks you through the setup.</p></div>
+</div>
+</section>
+</div>
+
+<div class="band band-plum">
+<section class="wrap" aria-labelledby="shared-title">
+<p class="verb">Shared</p>
+<h2 id="shared-title">What stays in step</h2>
+<div class="facts">
+<div><h3>Playlists</h3><p>Playlists made on the computer or a phone appear on the server and on the TV, and changes on either side are merged. A song is only removed if both sides had it and one took it out.</p></div>
+<div><h3>Flagged songs</h3><p>Flag a song on the TV or phone; it goes to a "Problem tracks" list on the server and onto the computer's review page.</p></div>
+<div><h3>Music on the phone</h3><p>Choose artists, albums, playlists or everything. Edits made on the server come down; <a href="android.html#sync">see how syncing works</a>.</p></div>
+<div><h3>Favorites</h3><p>Phones and TVs signed in to the server keep each person's favorites with it. The computer does not yet.</p></div>
+<div><h3>Profiles <span class="tag">new</span></h3><p>Each person gets their own favorites and playlists on the TV and phone. A profile is a Jellyfin user with no password, so anyone on your home network can pick it; remote access is switched off for it. This design will change.</p></div>
+<div><h3>Sending music <span class="tag">test</span></h3><p>With our MediaVerse Sync plugin, a phone can send new albums to a folder on the server to be looked over. The plugin is a test version and is not offered for download yet.</p></div>
+</div>
+<p class="note">Built and tried with Jellyfin 12.4. Back up your server before trying new features on it.</p>
+</section>
+</div>
+
+<div class="band band-night">
+<section class="wrap" aria-labelledby="start-title">
+<div class="callout">
+<h2 id="start-title">Starting out</h2>
+<p>On the computer open <b>Settings &gt; Jellyfin</b>. On the phone and TV, choose the Jellyfin server and approve the code shown. New to Jellyfin? Its own site explains how to install it.</p>
+<p class="cta"><a class="button" href="download.html">Download MediaVerse Studio</a><a class="button ghost" href="https://jellyfin.org/downloads/">Get Jellyfin</a></p>
+</div>
+</section>
+</div>
+</main>
+
+<footer class="foot"><div class="wrap">
+<p>MediaVerse Studio is free software under the GNU GPL, version 3 or later. It is an independent project, not affiliated with or endorsed by Jellyfin.</p>
+<p><a href="https://github.com/MediaVerseStudio/MediaVerse-Studio">Source on GitHub</a> · <a href="download.html">Download</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="https://github.com/MediaVerseStudio/MediaVerse-Studio/issues">Questions and problems</a></p>
+</div></footer>
+</body>
+</html>
